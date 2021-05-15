@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.rezerve_sepeti.businessPart.SignInActivity;
+import com.rezerve_sepeti.userPart.UserSignInActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -17,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,SignInActivity.class));
+            }
+        });
+        findViewById(R.id.userbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, UserSignInActivity.class));
             }
         });
     }

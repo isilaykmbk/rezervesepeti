@@ -21,6 +21,7 @@ private FirebaseAuth firebaseAuth;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_signin);
+
         firebaseAuth = FirebaseAuth.getInstance();
         EditText email = findViewById(R.id.inputUsername);
         EditText password = findViewById(R.id.inputEmail);

@@ -1,6 +1,6 @@
 package com.rezerve_sepeti;
 
-import androidx.appcompat.app.AppCompatActivity;
+import  androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +14,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         findViewById(R.id.businessbutton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SignInActivity.class));
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SignInActivity.class));
             }
         });
+
         findViewById(R.id.userbutton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, UserSignInActivity.class));
             }
         });
     }
+
+
 }

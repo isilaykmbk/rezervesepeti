@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
 
     <EditText
-        android:id="@+id/forgotPassword"
+        android:id="@+id/signupPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -94,8 +94,8 @@
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:textColorHint="@color/lightwhite"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
@@ -104,14 +104,15 @@
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:onClick="userSignupButton"
         android:text="Sıgn Up"
         android:textColor="@color/red"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
+        app:layout_constraintEnd_toEndOf="@+id/signupPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/forgotPassword"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+        app:layout_constraintStart_toStartOf="@+id/signupPassword"
+        app:layout_constraintTop_toBottomOf="@+id/signupPassword" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"

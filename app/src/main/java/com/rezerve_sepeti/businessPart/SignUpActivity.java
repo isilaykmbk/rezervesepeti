@@ -20,11 +20,11 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_business_signup);
         firebaseAuth = FirebaseAuth.getInstance();
-        EditText email = findViewById(R.id.inputEmail);
-        EditText password = findViewById(R.id.inputPassword);
-        findViewById(R.id.btnRegister).setOnClickListener(new View.OnClickListener() {
+        EditText email = findViewById(R.id.inputUsername);
+        EditText password = findViewById(R.id.inputEmail);
+        findViewById(R.id.signupbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -46,7 +46,7 @@ public class UserSignUpActivity extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-
+                Toast.makeText(UserSignUpActivity.this,"User Created",Toast.LENGTH_LONG).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

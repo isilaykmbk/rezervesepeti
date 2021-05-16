@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.rezerve_sepeti.R;
+
 public class UserDashboardAct extends AppCompatActivity {
 
 

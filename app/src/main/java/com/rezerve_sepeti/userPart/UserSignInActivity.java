@@ -36,7 +36,7 @@ public class UserSignInActivity extends AppCompatActivity {
 
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser != null){
-            Intent intent = new Intent(SignInActivity.this, UserDashboardAct.class);
+            Intent intent = new Intent(UserSignInActivity.this, UserDashboardAct.class);
             startActivity(intent);
             finish();
         }
@@ -66,7 +66,7 @@ public class UserSignInActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull @NotNull Exception e) {
-                    Toast.makeText(SignInActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(UserSignInActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
 
                 }
             });

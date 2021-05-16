@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/forgotPassword"
+        android:id="@+id/signupPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -68,14 +68,15 @@
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:onClick="userSigninButton"
         android:text="SIGN IN"
         android:textColor="@color/red"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
+        app:layout_constraintEnd_toEndOf="@+id/signupPassword"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/forgotPassword"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+        app:layout_constraintStart_toStartOf="@+id/signupPassword"
+        app:layout_constraintTop_toBottomOf="@+id/signupPassword" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

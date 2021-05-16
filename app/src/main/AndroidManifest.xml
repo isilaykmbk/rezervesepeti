@@ -11,10 +11,10 @@
         android:theme="@style/Theme.Rezervesepeti">
 <<<<<<< Updated upstream
         <activity android:name=".userPart.UploadActivity"></activity>
-        <activity android:name=".userPart.UserDashboardAct" />
+        <activity android:name=".userPart.UserDashboardAct" /><![CDATA[
 =======
-        <activity android:name=".businessPart.SignOutActivity"></activity>
->>>>>>> Stashed changes
+        >>>>>>> Stashed changes
+        ]]>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

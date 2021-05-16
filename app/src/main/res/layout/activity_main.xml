@@ -52,7 +52,6 @@
             android:layout_marginBottom="14dp"
             android:background="@drawable/activity_main_button_border"
             android:drawableLeft="@drawable/ic_baseline_family"
-            android:onClick="userbutton"
             android:text="User Sıgn ın "
             android:textColor="@color/green"
             android:textSize="14dp" />
@@ -83,7 +82,6 @@
             android:layout_marginBottom="14dp"
             android:background="@drawable/activity_main_button_border"
             android:drawableLeft="@drawable/ic_baseline_business"
-            android:onClick="businessbutton"
             android:text="Busıness Sıgn ın"
             android:textColor="@color/green"
             android:textSize="14dp" />

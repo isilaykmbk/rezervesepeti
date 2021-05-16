@@ -24,6 +24,10 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         EditText email = findViewById(R.id.inputUsername);
         EditText password = findViewById(R.id.inputEmail);
+        SignInButton(email, password);
+    }
+
+    private void SignInButton(EditText email, EditText password) {
         findViewById(R.id.signupbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
                 firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+                        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
                         Toast.makeText(getApplicationContext(),"Hesap Basarili Bir Sekilde olusturuldu.",Toast.LENGTH_LONG).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

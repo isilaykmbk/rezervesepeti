@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.rezerve_sepeti.R;
 
 public class SignInActivity  extends AppCompatActivity {
@@ -25,13 +26,15 @@ private FirebaseAuth firebaseAuth;
         firebaseAuth = FirebaseAuth.getInstance();
         EditText email = findViewById(R.id.inputUsername);
         EditText password = findViewById(R.id.inputEmail);
-        //FirebaseUser user = firebaseAuth.getCurrentUser();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        //
         findViewById(R.id.textViewSignUp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignInActivity.this,SignUpActivity.class));
             }
         });
+        //
         findViewById(R.id.btnlogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,10 +53,10 @@ private FirebaseAuth firebaseAuth;
                 });
             }
         });
-        /*if(user != null){
+        if(user != null){
             startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
             finish();
-        }*/
+        }
     }
 }
 

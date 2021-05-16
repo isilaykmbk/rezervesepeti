@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
+<<<<<<< Updated upstream
         <activity android:name=".userPart.UploadActivity"></activity>
         <activity android:name=".userPart.UserDashboardAct" />
+=======
+        <activity android:name=".businessPart.SignOutActivity"></activity>
+>>>>>>> Stashed changes
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

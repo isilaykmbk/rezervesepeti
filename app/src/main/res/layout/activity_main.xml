@@ -7,6 +7,8 @@
     android:background="@drawable/giris"
     tools:context=".MainActivity">
 
+    <!-- Cok onemli ayarlariyla sakin oynamayin ! -->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -20,7 +22,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="377dp"
+        android:layout_width="match_parent"
         android:layout_height="173dp"
         android:layout_marginTop="248dp"
         android:gravity="center"
@@ -32,29 +34,33 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="327dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="86dp"
+            android:layout_gravity="center"
             android:layout_marginBottom="2dp"
             android:text="Welcome!"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/mainorange"
+            android:textIsSelectable="false"
             android:textSize="28dp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/bus_linner"
-            android:layout_width="379dp"
+            android:layout_width="300dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/businessbutton"
-                android:layout_width="300dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="28dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_business"
                 android:text="Busıness Sıgn ın"
@@ -64,17 +70,19 @@
 
         <LinearLayout
             android:id="@+id/userlineer"
-            android:layout_width="379dp"
+            android:layout_width="300dp"
             android:layout_height="60dp"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/userbutton"
-                android:layout_width="300dp"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="28dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
                 android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_family"
                 android:text="User Sıgn ın "

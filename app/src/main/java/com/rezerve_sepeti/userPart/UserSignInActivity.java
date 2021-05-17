@@ -56,10 +56,12 @@ public class UserSignInActivity extends AppCompatActivity {
                 });
             }
         });
-
+/*
         if (firebaseUser != null){
             startActivity(new Intent(UserSignInActivity.this,UserDashboardAct.class));
             finish();
         }
+
+ */
     }
 }

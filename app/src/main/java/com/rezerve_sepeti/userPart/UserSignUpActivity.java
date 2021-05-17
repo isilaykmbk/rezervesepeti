@@ -13,7 +13,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +36,7 @@ public class UserSignUpActivity extends AppCompatActivity {
                 startActivity(new Intent(UserSignUpActivity.this, UserSignInActivity.class));
             }
         });
+
     }
 
         public void userSignupButton (View view){
@@ -47,6 +47,11 @@ public class UserSignUpActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(UserSignUpActivity.this,"User Created",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(UserSignUpActivity.this,UserSignInActivity.class);
+                startActivity(intent);
+                finish();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -54,9 +59,8 @@ public class UserSignUpActivity extends AppCompatActivity {
                 Toast.makeText(UserSignUpActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
             }
         });
-
-
     }
+
 
 
 }

@@ -13,4 +13,11 @@
     <color name="blue">#14AAED</color>
     <color name="orange">#FF6F0F</color>
     <color name="lightwhite">#94FFFFFF</color>
+    <color name="darkred">#8E0114</color>
+    <color name="mainblue">#6688C5</color>
+    <color name="maingreen">#4DA386</color>
+    <color name="mainorange">#F8AC72</color>
+    <color name="darkpurple">#353348</color>
+    <color name="pink">#D63169</color>
+    <color name="dwhite">#F4F5FA</color>
 </resources>

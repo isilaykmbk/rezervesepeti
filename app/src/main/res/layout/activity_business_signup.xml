@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.13" />
 
     <EditText
-        android:id="@+id/inputFullname"
+        android:id="@+id/user_signup_fullname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/inputUsername"
+        android:id="@+id/user_signup_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -52,12 +52,12 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/inputFullname"
-        app:layout_constraintStart_toStartOf="@+id/inputFullname"
-        app:layout_constraintTop_toBottomOf="@+id/inputFullname" />
+        app:layout_constraintEnd_toEndOf="@+id/user_signup_fullname"
+        app:layout_constraintStart_toStartOf="@+id/user_signup_fullname"
+        app:layout_constraintTop_toBottomOf="@+id/user_signup_fullname" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/user_signup_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -69,9 +69,9 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/inputUsername"
-        app:layout_constraintStart_toStartOf="@+id/inputUsername"
-        app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
+        app:layout_constraintEnd_toEndOf="@+id/user_signup_username"
+        app:layout_constraintStart_toStartOf="@+id/user_signup_username"
+        app:layout_constraintTop_toBottomOf="@+id/user_signup_username" />
 
     <EditText
         android:id="@+id/inputConformPassword"
@@ -86,12 +86,12 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintEnd_toEndOf="@+id/user_signup_email"
+        app:layout_constraintStart_toStartOf="@+id/user_signup_email"
+        app:layout_constraintTop_toBottomOf="@+id/user_signup_email" />
 
     <Button
-        android:id="@+id/signupbutton"
+        android:id="@+id/user_signup_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Zaten bir hesabın var mı?"
-        app:layout_constraintEnd_toEndOf="@+id/signupbutton"
-        app:layout_constraintStart_toStartOf="@+id/signupbutton"
-        app:layout_constraintTop_toBottomOf="@+id/signupbutton" />
+        app:layout_constraintEnd_toEndOf="@+id/user_signup_button"
+        app:layout_constraintStart_toStartOf="@+id/user_signup_button"
+        app:layout_constraintTop_toBottomOf="@+id/user_signup_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

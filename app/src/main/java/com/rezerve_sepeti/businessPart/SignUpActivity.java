@@ -22,13 +22,13 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_signup);
         firebaseAuth = FirebaseAuth.getInstance();
-        EditText email = findViewById(R.id.inputUsername);
-        EditText password = findViewById(R.id.inputEmail);
+        EditText email = findViewById(R.id.user_signup_username);
+        EditText password = findViewById(R.id.user_signup_email);
         SignInButton(email, password);
     }
 
     private void SignInButton(EditText email, EditText password) {
-        findViewById(R.id.signupbutton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.user_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -15,7 +15,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.rezerve_sepeti.R;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class UserSignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -27,10 +27,10 @@ public class UserSignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_signup);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        emailText = findViewById(R.id.inputEmail);
-        passwordText = findViewById(R.id.signupPassword);
+        emailText = findViewById(R.id.user_signup_email);
+        passwordText = findViewById(R.id.user_signup_password);
 
-        findViewById(R.id.textViewSignUp).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.user_text_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserSignUpActivity.this, UserSignInActivity.class));
@@ -38,7 +38,6 @@ public class UserSignUpActivity extends AppCompatActivity {
         });
 
     }
-
         public void userSignupButton (View view){
         String email = emailText.getText().toString() ;
         String password = passwordText.getText().toString();
@@ -55,7 +54,7 @@ public class UserSignUpActivity extends AppCompatActivity {
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull @NotNull Exception e) {
+            public void onFailure(@NonNull Exception e) {
                 Toast.makeText(UserSignUpActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
             }
         });

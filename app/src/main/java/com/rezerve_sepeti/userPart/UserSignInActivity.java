@@ -14,64 +14,52 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.auth.User;
-import com.rezerve_sepeti.R;
-import com.rezerve_sepeti.businessPart.SignInActivity;
-import com.rezerve_sepeti.businessPart.SignUpActivity;
 
-import org.jetbrains.annotations.NotNull;
+import com.rezerve_sepeti.R;
+
+//TODO:: user'ın kurum mu yoksa kullanıcı mı olduunu test edip ona göre içeri al
 
 public class UserSignInActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    EditText emailText, passwordText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_signin);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        emailText = findViewById(R.id.inputEmail);
-        passwordText = findViewById(R.id.signupPassword);
-
+        EditText emailText = findViewById(R.id.user_signin_username);
+        EditText passwordText = findViewById(R.id.user_signin_password);
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        if (firebaseUser != null){
-            Intent intent = new Intent(UserSignInActivity.this, UserDashboardAct.class);
-            startActivity(intent);
-            finish();
-        }
 
-
-        findViewById(R.id.textViewSignUp).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.user_text_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserSignInActivity.this, UserSignUpActivity.class));
             }
         });
-    }
 
-        public void userSigninButton(View view) {
-            String email = emailText.getText().toString() ;
-            String password = passwordText.getText().toString();
+        findViewById(R.id.user_signin_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signInWithEmailAndPassword(emailText.getText().toString(),passwordText.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        startActivity(new Intent(UserSignInActivity.this, UserDashboardAct.class));
+                        Toast.makeText(getApplicationContext(),"Giris Basarili",Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
 
-            firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                @Override
-                public void onSuccess(AuthResult authResult) {
-
-                    Intent intent = new Intent(UserSignInActivity.this,UserDashboardAct.class);
-                    startActivity(intent);
-                    finish();
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull @NotNull Exception e) {
-                    Toast.makeText(UserSignInActivity.this,e.getLocalizedMessage().toString(),Toast.LENGTH_LONG).show();
-
-                }
-            });
-
+        if (firebaseUser != null){
+            startActivity(new Intent(UserSignInActivity.this,UserDashboardAct.class));
+            finish();
         }
-
-
+    }
 }

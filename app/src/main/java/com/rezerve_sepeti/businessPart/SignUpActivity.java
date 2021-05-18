@@ -25,6 +25,14 @@ public class SignUpActivity extends AppCompatActivity {
         EditText email = findViewById(R.id.user_signup_username);
         EditText password = findViewById(R.id.user_signup_email);
         SignInButton(email, password);
+
+        findViewById(R.id.alreadyHaveAccount).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+
+        });
     }
 
     private void SignInButton(EditText email, EditText password) {
@@ -47,4 +55,5 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+
 }

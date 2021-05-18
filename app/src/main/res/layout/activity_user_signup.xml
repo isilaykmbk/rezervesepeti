@@ -129,7 +129,7 @@
             android:background="@drawable/activity_main_button_border"
             android:onClick="userSignupButton"
             android:text="Sıgn Up"
-            android:textColor="@color/red"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/user_signup_password"

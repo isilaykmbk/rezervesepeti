@@ -41,7 +41,7 @@
             android:text="Welcome!"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/mainorange"
+            android:textColor="@color/maingreen"
             android:textIsSelectable="false"
             android:textSize="28dp"
             android:textStyle="bold" />
@@ -64,7 +64,8 @@
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_business"
                 android:text="Busıness Sıgn ın"
-                android:textColor="@color/darkred"
+                android:paddingLeft="1dp"
+                android:textColor="@color/white"
                 android:textSize="15dp" />
         </LinearLayout>
 
@@ -86,7 +87,8 @@
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_family"
                 android:text="User Sıgn ın "
-                android:textColor="@color/darkred"
+                android:textColor="@color/white"
+                android:paddingLeft="1dp"
                 android:textSize="15dp" />
 
         </LinearLayout>

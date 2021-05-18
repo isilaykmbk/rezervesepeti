@@ -85,7 +85,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/activity_main_button_border"
             android:text="SIGN IN"
-            android:textColor="@color/red"
+            android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/user_signin_password"

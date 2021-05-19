@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dwhite"
-    tools:context=".userPart.UserSignUpActivity">
+    android:background="@color/white"
+    tools:context=".userPart.UserSignUpActivity"
+    >
+
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -132,6 +134,7 @@
             android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="bold"
+            android:theme="@style/Theme.Rezervesepeti.deneme"
             app:layout_constraintEnd_toEndOf="@+id/user_signup_password"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/user_signup_password"
@@ -175,19 +178,118 @@
 
     </LinearLayout>
 
-    <!-- Cok onemli ayarlariyla sakin oynamayin ! -->
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout4"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ustkenar"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/leftthirdlin"
+            android:layout_width="12dp"
+            android:layout_height="15dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.534"></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rightthirdlin"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.549"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.31"></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/leftsecondlin"
+            android:layout_width="51dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.326"></LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rightsecondlin"
+            android:layout_width="90dp"
+            android:layout_height="84dp"
+            android:layout_marginBottom="108dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.716"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/toplin"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/leftlin"
+            android:layout_width="33dp"
+            android:layout_height="45dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.382">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rightlin"
+            android:layout_width="150dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="268dp"
+            android:layout_marginTop="76dp"
+            android:background="@color/darkred"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+        <ImageView
+            android:id="@+id/topImage"
+            android:layout_width="398dp"
+            android:layout_height="163dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/rightlin"
+
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/leftlin"
+            app:layout_constraintTop_toTopOf="@+id/toplin"
+            app:srcCompat="@drawable/top_second" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Cok onemli ayarlariyla sakin oynamayin ! -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

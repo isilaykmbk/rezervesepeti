@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.995"
-        app:srcCompat="@drawable/giriskenar" />
+        app:srcCompat="@drawable/main_bottom" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"

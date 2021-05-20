@@ -30,8 +30,9 @@ public class DashboardActivity extends AppCompatActivity {
 
         if(item.getItemId() == R.id.signout){
             firebaseAuth.signOut();
-            Intent intenttosignup = new Intent(DashboardActivity.this,SignUpActivity.class);
+            Intent intenttosignup = new Intent(DashboardActivity.this,SignInActivity.class);
             startActivity(intenttosignup);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }//this method is used for what will be done when something has selected on menu

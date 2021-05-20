@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bb"
     tools:context=".MainActivity">
+    <!--
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,87 +21,108 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
-        <Button
-            android:id="@+id/timebutton5"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="20.00- 21.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="643dp" />
-
-        <Button
-            android:id="@+id/timebutton4"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="28dp"
-            android:text="19.00- 20.00"
+        <LinearLayout
+            android:id="@+id/timelin"
+            android:layout_width="150dp"
+            android:layout_height="271dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="591dp" />
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="16.00- 17.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="533dp" />
-
-        <Button
-            android:id="@+id/timebutton2"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="17.00- 18.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="471dp" />
-
-        <Button
-            android:id="@+id/timebutton3"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="18.00- 19.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="533dp" />
-
-        <TextView
-            android:id="@+id/seats5"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="120dp"
-            android:background="#710606"
-            android:text="4"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton5"
-            app:layout_constraintHorizontal_bias="0.734"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/seats3" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/seats4"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="64dp"
-            android:background="#710606"
-            android:text="2"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button4"
-            app:layout_constraintTop_toTopOf="@+id/seats3" />
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:text="15.00- 16.00" />
 
-        <TextView
-            android:id="@+id/seats3"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:background="#710606"
-            android:text="6"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/button12"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button3"
-            tools:layout_editor_absoluteY="526dp" />
+            <Button
+                android:id="@+id/timebutton"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:text="16.00- 17.00" />
+
+            <Button
+                android:id="@+id/timebutton2"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:text="17.00- 18.00" />
+
+            <Button
+                android:id="@+id/timebutton3"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:text="18.00- 19.00" />
+
+            <Button
+                android:id="@+id/timebutton4"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="28dp"
+                android:text="19.00- 20.00" />
+
+            <Button
+                android:id="@+id/timebutton5"
+                android:layout_width="132dp"
+                android:layout_height="36dp"
+                android:text="20.00- 21.00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/chairlin"
+            android:layout_width="125dp"
+            android:layout_height="269dp"
+            android:layout_marginStart="108dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/timelin"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tablelin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.997">
+
+            <TextView
+                android:id="@+id/seats5"
+                android:layout_width="61dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="120dp"
+                android:background="#710606"
+                android:text="4"
+                android:textColor="#FFF7F7"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/seats4"
+                android:layout_width="61dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="64dp"
+                android:background="#710606"
+                android:text="2"
+                android:textColor="#FFF7F7"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/seats3"
+                android:layout_width="61dp"
+                android:layout_height="33dp"
+                android:background="#710606"
+                android:text="6"
+                android:textColor="#FFF7F7"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/seats"
+                android:layout_width="61dp"
+                android:layout_height="33dp"
+                android:background="#710606"
+                android:text="2"
+                android:textColor="#FFF7F7"
+                android:textSize="20sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView8"
@@ -112,40 +134,8 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/timebutton2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button2"
+            app:layout_constraintStart_toEndOf="@+id/table_button_2"
             tools:layout_editor_absoluteY="471dp" />
-
-        <Button
-            android:id="@+id/table_button3"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="3"
-            app:layout_constraintEnd_toStartOf="@+id/desktxt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="526dp" />
-
-        <Button
-            android:id="@+id/table_button4"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="4"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="582dp" />
-
-        <Button
-            android:id="@+id/table_button2"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="2"
-            app:layout_constraintEnd_toEndOf="@+id/desktxt"
-            app:layout_constraintEnd_toStartOf="@+id/desktxt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="464dp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -162,28 +152,6 @@
             app:layout_constraintStart_toEndOf="@+id/desktxt"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/table_button"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="1"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="408dp" />
-
-        <TextView
-            android:id="@+id/seats"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:background="#710606"
-            android:text="2"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button"
-            tools:layout_editor_absoluteY="408dp" />
-
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
@@ -194,14 +162,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="271dp" />
-
-        <Button
-            android:id="@+id/timebutton"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="16.00- 17.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="415dp" />
 
         <Button
             android:id="@+id/buttondash"
@@ -240,6 +200,59 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.084" />
+
+        <LinearLayout
+            android:id="@+id/tablelin"
+            android:layout_width="104dp"
+            android:layout_height="265dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <Button
+                android:id="@+id/table_button"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/table_button_2"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/table_button3"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/table_button_4"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="5" />
+            <Button
+                android:id="@+id/table_button_5"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="5" />
+            <Button
+                android:id="@+id/table_button_6"
+                android:layout_width="71dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:text="5" />
+
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/business_adress"
@@ -280,31 +293,6 @@
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="1.0" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="textView3" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/table_button4"
-        android:layout_width="71dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:text="5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="644dp" />
-
-    <Button
-        android:id="@+id/table_button2"
-        android:layout_width="71dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:text="2"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="464dp" />
+            -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

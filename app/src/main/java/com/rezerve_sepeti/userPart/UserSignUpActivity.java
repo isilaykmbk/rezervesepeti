@@ -19,6 +19,8 @@ import com.rezerve_sepeti.R;
 
 public class UserSignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
+
+    
     EditText emailText, passwordText;
 
     @Override

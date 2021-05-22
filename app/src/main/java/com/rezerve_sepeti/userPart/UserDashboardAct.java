@@ -20,7 +20,6 @@ public class UserDashboardAct extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.rezerv_options_menu,menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -40,6 +39,8 @@ public class UserDashboardAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
+        /*Intent intent = new Intent(UserDashboardAct.this,UserMapsActivity.class);
+        startActivity(intent);*/
     }
 
 }

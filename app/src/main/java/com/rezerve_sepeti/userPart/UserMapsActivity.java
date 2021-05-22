@@ -99,7 +99,6 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         }
     }
 
-
     @Override //izin ilk defa verildiginde ne yapilacak 5-2
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

@@ -8,14 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.rezerve_sepeti.R;
 
 public class UserDashboardAct extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-
+    private FirebaseUser firebaseUser;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

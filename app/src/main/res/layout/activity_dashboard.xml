@@ -20,291 +20,82 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
-        <Button
-            android:id="@+id/timebutton5"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="20.00- 21.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="643dp" />
-
-        <Button
-            android:id="@+id/timebutton4"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="28dp"
-            android:text="19.00- 20.00"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="591dp" />
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="16.00- 17.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="533dp" />
-
-        <Button
-            android:id="@+id/timebutton2"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="17.00- 18.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="471dp" />
-
-        <Button
-            android:id="@+id/timebutton3"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="18.00- 19.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="533dp" />
-
-        <TextView
-            android:id="@+id/seats5"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="120dp"
-            android:background="#710606"
-            android:text="4"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton5"
-            app:layout_constraintHorizontal_bias="0.734"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/seats3" />
-
-        <TextView
-            android:id="@+id/seats4"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="64dp"
-            android:background="#710606"
-            android:text="2"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button4"
-            app:layout_constraintTop_toTopOf="@+id/seats3" />
-
-        <TextView
-            android:id="@+id/seats3"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:background="#710606"
-            android:text="6"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/button12"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button3"
-            tools:layout_editor_absoluteY="526dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:background="#710606"
-            android:text="4"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button2"
-            tools:layout_editor_absoluteY="471dp" />
-
-        <Button
-            android:id="@+id/table_button3"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="3"
-            app:layout_constraintEnd_toStartOf="@+id/desktxt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="526dp" />
-
-        <Button
-            android:id="@+id/table_button4"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="4"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="582dp" />
-
-        <Button
-            android:id="@+id/table_button2"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="2"
-            app:layout_constraintEnd_toEndOf="@+id/desktxt"
-            app:layout_constraintEnd_toStartOf="@+id/desktxt"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="464dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="Koltuklar"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView12"
-            app:layout_constraintHorizontal_bias="0.812"
-            app:layout_constraintStart_toEndOf="@+id/desktxt"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/table_button"
-            android:layout_width="71dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="16dp"
-            android:text="1"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="408dp" />
-
-        <TextView
-            android:id="@+id/seats"
-            android:layout_width="61dp"
-            android:layout_height="33dp"
-            android:background="#710606"
-            android:text="2"
-            android:textColor="#FFF7F7"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/timebutton"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/table_button"
-            tools:layout_editor_absoluteY="408dp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Zaman Seç"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="271dp" />
-
-        <Button
-            android:id="@+id/timebutton"
-            android:layout_width="132dp"
-            android:layout_height="36dp"
-            android:text="16.00- 17.00"
-            tools:layout_editor_absoluteX="249dp"
-            tools:layout_editor_absoluteY="415dp" />
-
-        <Button
-            android:id="@+id/buttondash"
-            android:layout_width="162dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:background="#FFC8C8"
-            android:backgroundTint="#120707"
-            android:text="Giriş yap- Çıkış Yap"
-            app:layout_constraintEnd_toStartOf="@+id/business_name"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="152dp"
             android:layout_height="191dp"
-            app:srcCompat="@drawable/ac93b330800b48fea2a3cb64cd66307c"
-            tools:layout_editor_absoluteX="14dp"
-            tools:layout_editor_absoluteY="99dp" />
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.451"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group"
+            app:srcCompat="@drawable/ac93b330800b48fea2a3cb64cd66307c" />
 
         <EditText
             android:id="@+id/business_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="İşletme Adı"
             android:inputType="textPersonName"
             android:textColorHint="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.084" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.327"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <EditText
-            android:id="@+id/business_adress"
-            android:layout_width="201dp"
-            android:layout_height="91dp"
-            android:layout_marginStart="170dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="40dp"
+            android:id="@+id/business_type"
+            android:layout_width="239dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="144dp"
             android:ems="10"
-            android:hint="İşletme Adresi"
+            android:hint="İşletme Türü"
             android:inputType="textPersonName"
             android:textColorHint="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.365"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <EditText
             android:id="@+id/business_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
             android:ems="10"
             android:hint="İşletme Telefonu"
             android:inputType="textPersonName"
             android:textColorHint="#000000"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            tools:layout_editor_absoluteX="173dp" />
-
-        <TextView
-            android:id="@+id/desktxt"
-            android:layout_width="56dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="348dp"
-            android:text="Masa"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.293"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="textView3" />
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="105dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="72dp"
+            android:text="Düzenle"
+            app:layout_constraintStart_toStartOf="@+id/business_type"
+            app:layout_constraintTop_toBottomOf="@+id/business_type" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="112dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="72dp"
+            android:text="İleri"
+            app:layout_constraintEnd_toEndOf="@+id/business_type"
+            app:layout_constraintTop_toBottomOf="@+id/business_type" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/table_button4"
-        android:layout_width="71dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:text="5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="644dp" />
-
-    <Button
-        android:id="@+id/table_button2"
-        android:layout_width="71dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:text="2"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="464dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

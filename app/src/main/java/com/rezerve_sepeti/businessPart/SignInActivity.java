@@ -24,18 +24,18 @@ private FirebaseAuth firebaseAuth;
         setContentView(R.layout.activity_business_signin);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        EditText email = findViewById(R.id.user_signup_username);
-        EditText password = findViewById(R.id.user_signup_email);
+        EditText email = findViewById(R.id.business_signin_email);
+        EditText password = findViewById(R.id.business_signin_password);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         //
-        findViewById(R.id.user_text_signup_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_text_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignInActivity.this,SignUpActivity.class));
             }
         });
         //
-        findViewById(R.id.user_signin_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

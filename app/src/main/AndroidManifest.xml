@@ -28,10 +28,16 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <!--
         <activity
+<<<<<<< Updated upstream
             android:name=".userPart.UserMapsActivity"
             android:label="@string/title_activity_userr_maps"></activity>
+=======
+            android:name=".userPart.userrMapsActivity"
+            android:label="@string/title_activity_userr_maps" />
+>>>>>>> Stashed changes
+        -->
         <activity android:name=".MainActivity">
 
             <intent-filter>

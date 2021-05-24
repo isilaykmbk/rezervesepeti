@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,37 +31,54 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business_signup);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore =  FirebaseFirestore.getInstance();
-        EditText email = findViewById(R.id.user_signup_username);
-        EditText password = findViewById(R.id.user_signup_email);
-        EditText username = findViewById(R.id.user_signup_fullname);
-        EditText confirmPassword = findViewById(R.id.inputConformPassword);
+        EditText email = findViewById(R.id.business_signup_email);
+        EditText password = findViewById(R.id.business_signup_password);
+        EditText username = findViewById(R.id.business_signup_username);
+        EditText confirmPassword = findViewById(R.id.busi_inputConformPassword);
         SignUpButton(email, password, username, confirmPassword);
     }
     //Firestore HashMap yapısına gore kayıt yaptıgı ıcın kayıt yapacagımız kurumun modelı.
     HashMap<String,Object> GetBusinessModel(String username,String mail,String uuId){
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("Username",username);
-        map.put("Email",mail);
-        map.put("UUID",uuId);
-        map.put("TableCount",null);
-        map.put("ChairCounts",null);//new int[0]
-        map.put("GeoPoint",null); //new GeoPoint(0,0)
-        return map;
+        HashMap<String,Object> model = new HashMap<>();
+        model.put("Username",username);
+        model.put("Email",mail);
+        model.put("UUID",uuId);
+        model.put("TableCount",null);
+        model.put("Tables",null);
+        model.put("GeoPoint",null); //new GeoPoint(0,0)
+        model.put("BusinessName",null);
+        model.put("BusinessPhoneNumber",null);
+        model.put("BusinessType",null);
+        model.put("Open",true);
+        return model;
     }
     //TODO:Bu yapı muhtemelen dashboardda masaları duzenlerken kullanılacak.
-    HashMap<String,Object> GetTableModel()
-    {
-        return null;
+    HashMap<String,Object> GetTableModel(int tableCount) {
+        HashMap<String,Object> model = new HashMap<>();
+        return model;
+    }
+    //TODO:Her masanın içerisindeki zaman veri modeli.
+    HashMap<String,Object> TimeLineModel(Timestamp start,Timestamp finish){
+        HashMap<String,Object> model = new HashMap<>();
+        for (int i = 0;i<5;i++){
+            //TODO:Dongu ıcerısındekı ı baslangıc saatınden bıtıs saatıne
+            // kadar olan 1 saatlık dılımlerı temsıl edıyor.
+            // Icerısındekı Taken fıeld'ı o 1 saatlık dılımın rezerve edılıp edılmedıgını gosterıyor.
+            HashMap<String,Object> time = new HashMap<>();
+            time.put(""+i,i);
+            time.put("Taken",false);
+        }
+        return model;
     }
     boolean CheckInputDatas(EditText email, EditText password, EditText username, EditText confirmPassword) {
         return (email.getText().toString().length() > 0 &&
                 username.getText().toString().length() > 0 &&
                 password.getText().toString().length() > 0 &&
                 confirmPassword.getText().toString().length() > 0 &&
-                confirmPassword.getText().toString() == password.getText().toString());
+                password.getText().toString().equals(confirmPassword.getText().toString()));
     }
     private void SignUpButton(EditText email, EditText password, EditText username, EditText confirmPassword) {
-        findViewById(R.id.user_signup_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Girilen veriler dolumu ve şifreler aynımı diye kontroll ediliyor.

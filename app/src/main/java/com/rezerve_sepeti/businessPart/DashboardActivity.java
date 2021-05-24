@@ -31,12 +31,11 @@ public class DashboardActivity extends AppCompatActivity {
             firebaseAuth.signOut();
             Intent intenttosignup = new Intent(DashboardActivity.this,SignUpActivity.class);
             startActivity(intenttosignup);
-<<<<<<< Updated upstream
-=======
+
             finish();
         }else if(item.getItemId() == R.id.debug){
             Toast.makeText(getApplicationContext(),firebaseUser.getUid(),Toast.LENGTH_LONG).show();
->>>>>>> Stashed changes
+
         }
         return super.onOptionsItemSelected(item);
     }//this method is used for what will be done when something has selected on menu

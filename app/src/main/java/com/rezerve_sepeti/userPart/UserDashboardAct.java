@@ -8,19 +8,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.rezerve_sepeti.R;
 
 public class UserDashboardAct extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-
+    private FirebaseUser firebaseUser;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.rezerv_options_menu,menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -40,6 +41,10 @@ public class UserDashboardAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
+
+
+        /*Intent intent = new Intent(UserDashboardAct.this,UserMapsActivity.class);
+        startActivity(intent);*/
     }
 
 }

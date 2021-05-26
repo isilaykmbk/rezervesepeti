@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
+import com.rezerve_sepeti.userPart.UserDashboardAct;
+import com.rezerve_sepeti.userPart.UserSignInActivity;
 
 public class UserMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -41,6 +44,13 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        findViewById(R.id.UserMapButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserMapsActivity.this, UserDashboardAct.class));
+            }
+        });
     }
 
     @Override
@@ -50,15 +60,15 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE); //1-1 alt yerler dahil
         locationListener = location -> {
                 //kullanici istedigi yerde gezinebiliyor,çıkınca eski yerde kalıyor //3-0
-             SharedPreferences sharedPreferences = UserMapsActivity.this.getSharedPreferences("com.rezerve_sepeti.rezervesepeti",MODE_PRIVATE);
-             boolean trackBoolean = sharedPreferences.getBoolean("trackBoolean",false);
-            LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude()); //5-1
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));   //5-1
-            mMap.addMarker(new MarkerOptions().position(userLocation).title("Konumum"));
-                //kaydedilmemisse true yap //3-1
-             if(!trackBoolean) {
+            SharedPreferences sharedPreferences = UserMapsActivity.this.getSharedPreferences("com.rezerve_sepeti.rezervesepeti",MODE_PRIVATE);
+            boolean trackBoolean = sharedPreferences.getBoolean("trackBoolean",false);
 
-                    sharedPreferences.edit().putBoolean("trackBoolean",true).apply();
+            //kaydedilmemisse true yap //3-1
+             if(!trackBoolean) {
+                 LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude()); //5-1
+                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));   //5-1
+                 mMap.addMarker(new MarkerOptions().position(userLocation).title("Konumum"));
+                 sharedPreferences.edit().putBoolean("trackBoolean",true).apply();
                 }
              };
 

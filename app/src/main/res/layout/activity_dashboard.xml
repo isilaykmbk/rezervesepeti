@@ -20,27 +20,59 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
+        <EditText
+            android:id="@+id/business_name3"
+            android:layout_width="222dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="128dp"
+            android:ems="10"
+            android:hint="İşletme Türü"
+            android:inputType="textPersonName"
+            android:textColorHint="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <EditText
+            android:id="@+id/business_name2"
+            android:layout_width="222dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="72dp"
+            android:ems="10"
+            android:hint="İşletme Telefonu"
+            android:inputType="textPersonName"
+            android:textColorHint="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.0" />
+
         <Button
             android:id="@+id/button4"
             android:layout_width="110dp"
             android:layout_height="46dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="56dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="92dp"
             android:text="İleri"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_type"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="152dp"
             android:layout_height="191dp"
             android:layout_marginTop="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
+            app:layout_constraintVertical_bias="0.031"
             app:srcCompat="@drawable/ac93b330800b48fea2a3cb64cd66307c" />
 
         <EditText
@@ -52,38 +84,12 @@
             android:hint="İşletme Adı"
             android:inputType="textPersonName"
             android:textColorHint="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintHorizontal_bias="0.327"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-        <EditText
-            android:id="@+id/business_type"
-            android:layout_width="239dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="144dp"
-            android:ems="10"
-            android:hint="İşletme Türü"
-            android:inputType="textPersonName"
-            android:textColorHint="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintHorizontal_bias="0.365"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-        <EditText
-            android:id="@+id/business_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:ems="10"
-            android:hint="İşletme Telefonu"
-            android:inputType="textPersonName"
-            android:textColorHint="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintHorizontal_bias="0.293"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.013" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
@@ -94,13 +100,11 @@
             android:id="@+id/button"
             android:layout_width="110dp"
             android:layout_height="46dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginBottom="92dp"
             android:text="Düzenle"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_type"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

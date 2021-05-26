@@ -49,33 +49,18 @@
             app:layout_constraintTop_toBottomOf="@+id/business_map_text"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView2"
-            android:layout_width="280dp"
-            android:layout_height="186dp"
-            android:layout_marginTop="56dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/group"
-            app:layout_constraintVertical_bias="0.033" />
-
         <EditText
             android:id="@+id/business_map_text"
             android:layout_width="271dp"
             android:layout_height="106dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginBottom="208dp"
             android:ems="10"
             android:hint="Sözel Açıklaması"
             android:inputType="textPersonName"
             android:textColorHint="#291B1B"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/mapView2"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/mapView2"
-            app:layout_constraintTop_toBottomOf="@+id/mapView2"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

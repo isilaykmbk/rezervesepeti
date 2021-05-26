@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -29,12 +31,11 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.signout){
             firebaseAuth.signOut();
-            Intent intenttosignup = new Intent(DashboardActivity.this,SignUpActivity.class);
+            Intent intenttosignup = new Intent(DashboardActivity.this, SignInActivity.class);
             startActivity(intenttosignup);
             finish();
         }else if(item.getItemId() == R.id.debug){
             Toast.makeText(getApplicationContext(),firebaseUser.getUid(),Toast.LENGTH_LONG).show();
-            finish();
         }
         return super.onOptionsItemSelected(item);
     }//this method is used for what will be done when something has selected on menu
@@ -45,6 +46,12 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
+        findViewById(R.id.business_dashboard_nextbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));
+            }
+        });
     }
 
 }

@@ -28,18 +28,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <!--
-        <activity
-<<<<<<< Updated upstream
-            android:name=".userPart.UserMapsActivity"
-            android:label="@string/title_activity_userr_maps"></activity>
-=======
-            android:name=".userPart.userrMapsActivity"
-            android:label="@string/title_activity_userr_maps" />
->>>>>>> Stashed changes
-        -->
-        <activity android:name=".MainActivity">
 
+        <activity
+            android:name=".businessPart.BusinessMapsActivity"
+            android:label="@string/title_activity_business_maps"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +42,9 @@
         <activity android:name=".businessPart.SignInActivity" />
         <activity android:name=".businessPart.SignUpActivity" />
         <activity android:name=".businessPart.DashboardActivity" />
+        <activity
+            android:name=".businessPart.BusinessMapsActivity"
+            android:label="@string/title_activity_business_maps"></activity>
         <activity android:name=".userPart.UserSignInActivity" />
         <activity android:name=".userPart.UserSignUpActivity" />
         <activity android:name=".userPart.UserDashboardAct" />

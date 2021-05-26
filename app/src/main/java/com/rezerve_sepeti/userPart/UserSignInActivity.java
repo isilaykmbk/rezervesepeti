@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import com.rezerve_sepeti.R;
+import com.rezerve_sepeti.UserMapsActivity;
 
 //TODO:: user'ın kurum mu yoksa kullanıcı mı olduunu test edip ona göre içeri al
 
@@ -44,7 +45,7 @@ public class UserSignInActivity extends AppCompatActivity {
                 firebaseAuth.signInWithEmailAndPassword(emailText.getText().toString(),passwordText.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        startActivity(new Intent(UserSignInActivity.this, UserDashboardAct.class));
+                        startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));
                         Toast.makeText(getApplicationContext(),"Giris Basarili",Toast.LENGTH_LONG).show();
                         finish();
                     }

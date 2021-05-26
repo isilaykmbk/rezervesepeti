@@ -33,7 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
         EditText email = findViewById(R.id.user_signup_username);
         EditText password = findViewById(R.id.user_signup_email);
         EditText username = findViewById(R.id.user_signup_fullname);
-        EditText confirmPassword = findViewById(R.id.inputConformPassword);
+        EditText confirmPassword = findViewById(R.id.busi_inputConformPassword);
         SignUpButton(email, password, username, confirmPassword);
     }
     //Firestore HashMap yapısına gore kayıt yaptıgı ıcın kayıt yapacagımız kurumun modelı.

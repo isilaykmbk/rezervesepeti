@@ -8,6 +8,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -30,10 +31,18 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".userPart.UserMapsActivity"
-            android:label="@string/title_activity_userr_maps"></activity>
-        <activity android:name=".MainActivity">
+            android:name=".UserMapsActivity"
+            android:label="MAP"></activity>
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

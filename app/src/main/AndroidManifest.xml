@@ -52,6 +52,10 @@
         <activity android:name=".businessPart.SignInActivity" />
         <activity android:name=".businessPart.SignUpActivity" />
         <activity android:name=".businessPart.DashboardActivity" />
+        <activity
+            android:name=".businessPart.BusinessMapsActivity"
+            android:label="MAP"></activity>
+
         <activity android:name=".userPart.UserSignInActivity" />
         <activity android:name=".userPart.UserSignUpActivity" />
         <activity android:name=".userPart.UserDashboardAct" />

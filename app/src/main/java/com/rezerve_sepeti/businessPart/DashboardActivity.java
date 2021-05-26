@@ -46,7 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        findViewById(R.id.business_dashboard_nextbutton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));

@@ -79,21 +79,23 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/business_dash_button3"
             android:layout_width="105dp"
             android:layout_height="38dp"
             android:layout_marginTop="72dp"
             android:text="Düzenle"
+            app:layout_constraintEnd_toStartOf="@+id/business_type"
             app:layout_constraintStart_toStartOf="@+id/business_type"
             app:layout_constraintTop_toBottomOf="@+id/business_type" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/business_dash_button4"
             android:layout_width="112dp"
             android:layout_height="37dp"
             android:layout_marginTop="72dp"
             android:text="İleri"
             app:layout_constraintEnd_toEndOf="@+id/business_type"
+            app:layout_constraintStart_toEndOf="@+id/business_type"
             app:layout_constraintTop_toBottomOf="@+id/business_type" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

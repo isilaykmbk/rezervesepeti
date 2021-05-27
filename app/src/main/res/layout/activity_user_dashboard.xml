@@ -5,6 +5,438 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightwhite"
-    tools:context=".userPart.UserDashboardAct">
+    tools:context=".userPart.UserDashboardAct"
+    tools:visibility="visible">
+
+    <TextView
+        android:id="@+id/RestoranRez"
+        android:layout_width="228dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
+        android:paddingLeft="5dp"
+        android:text="Restoran Rezervasyonu"
+        android:textColor="@color/dblue"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="199dp"
+        android:layout_height="223dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/table" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Adı:"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/name_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/name_1"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:background="@drawable/reserve_button"
+        android:paddingLeft="18dp"
+        android:paddingTop="4dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="4dp"
+        android:text="*********"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="92dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Tarih:"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/reserve_button"
+        android:ems="10"
+        android:inputType="date"
+        android:paddingLeft="18dp"
+        android:paddingTop="4dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/tablin"
+        android:layout_width="80dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        >
+
+        <TextView
+            android:id="@+id/tabtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:text="Masa"
+            android:textColor="@color/dblue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/table_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/table_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/table_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/table_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/table_5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/table_6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/table_7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/table_8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/table_border"
+            android:text="8" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/seatlin"
+        android:layout_width="120dp"
+        android:layout_height="330dp"
+
+        android:layout_marginBottom="56dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toEndOf="@+id/tablin"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        >
+
+        <TextView
+            android:id="@+id/seattext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:text="Sandalye Sayısı"
+            android:textColor="@color/dblue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/seat_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/seat_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/seat_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/seat_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/seat_5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/seat_6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/seat_7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/table_border"
+            android:text="8" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/timelin"
+        android:layout_width="120dp"
+        android:layout_height="390dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toEndOf="@+id/seatlin"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+>
+
+        <TextView
+            android:id="@+id/timetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="2dp"
+            android:text="Saat"
+            android:textColor="@color/dblue"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/time_1"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="9.00 - 10.30"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_2"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="10.30 - 12.00"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_3"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="12.00 - 13.30"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_4"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="13.30 - 15.00"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_5"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="15.00 - 16.30"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_6"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="16.30 - 18.00"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_7"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="18.00 - 19.30"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_8"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="19.30 - 21.00"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_9"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="21.00 - 22.30"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_10"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="18.00 - 19.00"
+            android:textSize="9dp" />
+
+        <Button
+            android:id="@+id/time_11"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:text="22.30 - 24.00"
+            android:textSize="9dp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ileributon"
+        android:layout_width="90dp"
+        android:layout_height="38dp"
+        android:backgroundTint="@color/dblue"
+        android:text="ileri"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/timelin"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toEndOf="@+id/tablin"
+        app:layout_constraintTop_toTopOf="@+id/seatlin"
+        app:layout_constraintVertical_bias="0.956" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

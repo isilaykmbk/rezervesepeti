@@ -47,23 +47,23 @@ private FirebaseFirestore firebaseFirestore;
                 firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid());
+                        DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseAuth.getUid());
                         reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
                                 if (task.isSuccessful()){
-                                    if (task.getResult().get("doc") == null){
-                                        firebaseAuth.signOut();
-                                        Toast.makeText(getApplicationContext(),"Boyle bır hesap bulunmamaktadır!",Toast.LENGTH_LONG).show();
+                                    if (task.getResult().get("doc") != null){
+                                        startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                                        finish();
                                     }else{
-                                        if(task.getResult().get("BusinessName") == null || task.getResult().get("BusinessPhoneNumber") == null
-                                                || task.getResult().get("BusinessType") == null)
+                                        if(task.getResult().get("BusinessName") == null || task.getResult().get("BusinessPhoneNumber") == null || task.getResult().get("BusinessType") == null)
                                         {
                                             startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
                                             Toast.makeText(getApplicationContext(),"Lutfen bılgılerınızı doldurunuz!",Toast.LENGTH_LONG).show();
                                             finish();
                                         }else if(task.getResult().get("GeoPoint") == null){
-                                            //TODO: Harıtadan adres secme actıvıty'sıne yonlendırecek.
+                                            startActivity(new Intent(SignInActivity.this,BusinessMapsActivity.class));
+                                            finish();
                                         }else{
                                             //Eger kı gereklı bılgılerın hepsı doldurulmussa otomatıkmen rezervasyonla masalar ve rezervasyonların oldugu bolume gecer
                                             //TODO: Masaların rezervasyonların oldugu actıvıty'ye gecıs yapılmalı.

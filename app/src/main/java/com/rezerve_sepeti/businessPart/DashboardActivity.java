@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -95,10 +96,11 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CheckInputDatas(business_name,business_type,business_phone)){
-                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).
-                            update("business_name",business_name.getText(),
-                                    "business_phone",business_phone.getText(),
-                                    "business_type",business_type.getText()).
+                    HashMap<String,Object> model = new HashMap<>();
+                    model.put("business_name",business_name.getText().toString());
+                    model.put("business_phone",business_phone.getText().toString());
+                    model.put("business_type",business_type.getText().toString());
+                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(model, SetOptions.merge()).
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

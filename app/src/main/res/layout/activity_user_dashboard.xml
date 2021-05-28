@@ -115,221 +115,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
-        android:id="@+id/tablin"
-        android:layout_width="80dp"
-        android:layout_height="390dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        >
-
-        <TextView
-            android:id="@+id/tabtext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="2dp"
-            android:text="Masa"
-            android:textColor="@color/dblue"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/table_1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="1" />
-
-        <Button
-            android:id="@+id/table_2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="2" />
-
-        <Button
-            android:id="@+id/table_3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="3" />
-
-        <Button
-            android:id="@+id/table_4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="4" />
-
-        <Button
-            android:id="@+id/table_5"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="5" />
-
-        <Button
-            android:id="@+id/table_6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="6" />
-
-        <Button
-            android:id="@+id/table_7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="7" />
-
-        <Button
-            android:id="@+id/table_8"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/table_border"
-            android:text="8" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/seatlin"
-        android:layout_width="120dp"
-        android:layout_height="330dp"
-
-        android:layout_marginBottom="56dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintStart_toEndOf="@+id/tablin"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        >
-
-        <TextView
-            android:id="@+id/seattext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="2dp"
-            android:text="Sandalye Sayısı"
-            android:textColor="@color/dblue"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/seat_1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="2" />
-
-        <Button
-            android:id="@+id/seat_2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="3" />
-
-        <Button
-            android:id="@+id/seat_3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="4" />
-
-        <Button
-            android:id="@+id/seat_4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="5" />
-
-        <Button
-            android:id="@+id/seat_5"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="6" />
-
-        <Button
-            android:id="@+id/seat_6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="7" />
-
-        <Button
-            android:id="@+id/seat_7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@drawable/table_border"
-            android:text="8" />
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/timelin"
-        android:layout_width="120dp"
-        android:layout_height="390dp"
+        android:layout_width="121dp"
+        android:layout_height="371dp"
         android:layout_marginBottom="2dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.379"
-        app:layout_constraintStart_toEndOf="@+id/seatlin"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
->
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/timetext"
@@ -424,19 +222,19 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/ileributon"
-        android:layout_width="90dp"
+        android:id="@+id/rezerve"
+        android:layout_width="150dp"
         android:layout_height="38dp"
         android:backgroundTint="@color/dblue"
-        android:text="ileri"
+        android:text="Rezerve Et"
         android:textColor="@color/white"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/timelin"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toEndOf="@+id/tablin"
-        app:layout_constraintTop_toTopOf="@+id/seatlin"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.953" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

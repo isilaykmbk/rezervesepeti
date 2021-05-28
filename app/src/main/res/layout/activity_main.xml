@@ -38,12 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="2dp"
-            android:text="Welcome!"
+            android:text="HOŞ GELDİNİZ !"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/maingreen"
             android:textIsSelectable="false"
-            android:textSize="28dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -63,7 +63,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_business"
-                android:text="Busıness Sıgn ın"
+                android:text="İŞLETME GİRİŞİ"
                 android:paddingLeft="1dp"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
@@ -86,7 +86,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_family"
-                android:text="User Sıgn ın "
+                android:text="KULLANICI GİRİŞİ "
                 android:textColor="@color/white"
                 android:paddingLeft="1dp"
                 android:textSize="15dp" />

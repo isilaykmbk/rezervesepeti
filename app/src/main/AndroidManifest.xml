@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rezerve_sepeti">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -17,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launch_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
-
+        <activity android:name=".userPart.UserReserveActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -31,8 +30,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".UserMapsActivity"
-            android:label="MAP"></activity>
+            android:name=".userPart.UserMapsActivity"
+            android:label="MAP" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -54,11 +53,11 @@
         <activity android:name=".businessPart.DashboardActivity" />
         <activity
             android:name=".businessPart.BusinessMapsActivity"
-            android:label="MAP"></activity>
-
+            android:label="MAP" />
         <activity android:name=".userPart.UserSignInActivity" />
         <activity android:name=".userPart.UserSignUpActivity" />
         <activity android:name=".userPart.UserDashboardAct" />
+        <activity android:name=".userPart.UserReserveActivity" />
     </application>
 
 </manifest>

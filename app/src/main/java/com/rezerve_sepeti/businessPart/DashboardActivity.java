@@ -53,24 +53,17 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));
-            }
-        });
-
+        
         firebaseFirestore=FirebaseFirestore.getInstance();
         EditText business_name = findViewById(R.id.business_name);
         EditText business_type = findViewById(R.id.business_phone);
         EditText business_phone = findViewById(R.id.business_type);
         button4(business_name,business_type, business_phone);
+        button();
 
     }
     //firestore holds data according to the hashmap structure. Codes between 68-74th lines describe this structure.
@@ -96,15 +89,12 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CheckInputDatas(business_name,business_type,business_phone)){
-                    HashMap<String,Object> model = new HashMap<>();
-                    model.put("business_name",business_name.getText().toString());
-                    model.put("business_phone",business_phone.getText().toString());
-                    model.put("business_type",business_type.getText().toString());
-                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(model, SetOptions.merge()).
+                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),business_phone.getText().toString()), SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(),"Verileriniz güncellenmiştir.",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

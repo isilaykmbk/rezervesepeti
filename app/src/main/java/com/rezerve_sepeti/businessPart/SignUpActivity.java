@@ -14,13 +14,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.GeoPoint;
 import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.UUID;
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
@@ -35,17 +33,32 @@ public class SignUpActivity extends AppCompatActivity {
         EditText username = findViewById(R.id.user_signup_fullname);
         EditText confirmPassword = findViewById(R.id.busi_inputConformPassword);
         SignUpButton(email, password, username, confirmPassword);
+
+
+        findViewById(R.id.alreadyHaveAccount).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+            }
+        });
+
     }
+
     //Firestore HashMap yapısına gore kayıt yaptıgı ıcın kayıt yapacagımız kurumun modelı.
     HashMap<String,Object> GetBusinessModel(String username,String mail,String uuId){
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("Username",username);
-        map.put("Email",mail);
-        map.put("UUID",uuId);
-        map.put("TableCount",null);
-        map.put("ChairCounts",null);//new int[0]
-        map.put("GeoPoint",null); //new GeoPoint(0,0)
-        return map;
+        HashMap<String,Object> model = new HashMap<>();
+        model.put("Username",username); //e-mail yerine de geçebilir.
+        model.put("Email",mail);
+        model.put("UUID",uuId);
+        model.put("TableCount",null);
+        model.put("Tables",null);
+        model.put("GeoPoint",null); //new GeoPoint(0,0)
+        model.put("BusinessName",null);
+        model.put("BusinessPhoneNumber",null);
+        model.put("BusinessType",null);
+        model.put("Open",true);
+        return model;
+
     }
     //TODO:Bu yapı muhtemelen dashboardda masaları duzenlerken kullanılacak.
     HashMap<String,Object> GetTableModel()

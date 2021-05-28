@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Zaten bir hesabın var mı?"
+        android:text="Zaten bir hesabın var mı? Giriş Yap!"
         app:layout_constraintEnd_toEndOf="@+id/business_signup_button"
         app:layout_constraintStart_toStartOf="@+id/business_signup_button"
         app:layout_constraintTop_toBottomOf="@+id/business_signup_button" />

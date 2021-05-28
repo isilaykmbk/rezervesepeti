@@ -49,9 +49,7 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.signout){
             firebaseAuth.signOut();
-
-            Intent intenttosignin = new Intent(DashboardActivity.this,SignInActivity.class);
-            startActivity(intenttosignin);
+            startActivity(new Intent(DashboardActivity.this,SignInActivity.class));
 
             finish();
         }else if(item.getItemId() == R.id.debug){
@@ -102,31 +100,27 @@ public class DashboardActivity extends AppCompatActivity {
     }
     private void button4(EditText business_name, EditText business_type, EditText business_phone) {
         findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 if (CheckInputDatas(business_name,business_type,business_phone)){
-                    firebaseFirestore.collection("Restaurants").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),firebaseAuth.getCurrentUser().getUid())).addOnSuccessListener(new OnSuccessListener<Void>(){
-
+                    firebaseFirestore.collection("Restaurants").document(firebaseAuth.getCurrentUser().getUid()).
+                            update("business_name",business_name.getText(),
+                                    "business_phone",business_phone.getText(),
+                                    "business_type",business_type.getText()).
+                            addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(),"Veriler basarili bir sekilde eklendi.",Toast.LENGTH_LONG).show();
-                            //startActivity(new Intent(DashboardActivity.this, SignInActivity.class));
+                            Toast.makeText(getApplicationContext(),"Verileriniz güncellenmiştir.",Toast.LENGTH_LONG).show();
                         }
-                    }
-                    ).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull @NotNull Exception e) {
-                        firebaseAuth.getCurrentUser().delete();
-                        Toast.makeText(getApplicationContext(),"Hata olustu.",Toast.LENGTH_LONG).show();
-                    }
-                });
-                                                                                 }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull @NotNull Exception e) {
+                            Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
-
-            });
-
+            }
+        });
     }
 
     private void button(){

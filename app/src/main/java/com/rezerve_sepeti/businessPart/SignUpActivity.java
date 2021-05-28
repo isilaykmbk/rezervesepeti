@@ -19,6 +19,7 @@ import com.rezerve_sepeti.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
@@ -28,12 +29,11 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business_signup);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore =  FirebaseFirestore.getInstance();
-        EditText email = findViewById(R.id.user_signup_username);
-        EditText password = findViewById(R.id.user_signup_email);
-        EditText username = findViewById(R.id.user_signup_fullname);
+        EditText email = findViewById(R.id.business_signup_email);
+        EditText password = findViewById(R.id.business_signup_password);
+        EditText username = findViewById(R.id.business_signup_username);
         EditText confirmPassword = findViewById(R.id.busi_inputConformPassword);
         SignUpButton(email, password, username, confirmPassword);
-
 
         findViewById(R.id.alreadyHaveAccount).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,22 +41,23 @@ public class SignUpActivity extends AppCompatActivity {
                 startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
             }
         });
-
     }
-
     //Firestore HashMap yapısına gore kayıt yaptıgı ıcın kayıt yapacagımız kurumun modelı.
     HashMap<String,Object> GetBusinessModel(String username,String mail,String uuId){
         HashMap<String,Object> model = new HashMap<>();
-        model.put("Username",username); //e-mail yerine de geçebilir.
-        model.put("Email",mail);
-        model.put("UUID",uuId);
-        model.put("TableCount",null);
-        model.put("Tables",null);
-        model.put("GeoPoint",null); //new GeoPoint(0,0)
-        model.put("BusinessName",null);
-        model.put("BusinessPhoneNumber",null);
-        model.put("BusinessType",null);
-        model.put("Open",true);
+        model.put("business_username",username); //e-mail yerine de geçebilir.
+        model.put("business_mail",mail); //String
+        model.put("business_uuid",uuId); //String
+        model.put("table_count",null); //number/int
+        model.put("table_info",null); //liste/dizi olabilir.
+        model.put("geo_point",null); // new GeoPoint(0,0)
+        model.put("business_name",null); //String
+        model.put("business_phone",null); //String
+        model.put("business_type",null); //String
+        model.put("opening_time",null); // TimeStamp
+        model.put("closing_time",null); // TimeStamp
+        model.put("table_chair_count",null); // liste/dizi olabilir.
+        model.put("isOpen",true); //Boolean
         return model;
 
     }
@@ -70,10 +71,10 @@ public class SignUpActivity extends AppCompatActivity {
                 username.getText().toString().length() > 0 &&
                 password.getText().toString().length() > 0 &&
                 confirmPassword.getText().toString().length() > 0 &&
-                confirmPassword.getText().toString() == password.getText().toString());
+                confirmPassword.getText().toString().equals(password.getText().toString()));
     }
     private void SignUpButton(EditText email, EditText password, EditText username, EditText confirmPassword) {
-        findViewById(R.id.user_signup_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Girilen veriler dolumu ve şifreler aynımı diye kontroll ediliyor.
@@ -110,7 +111,7 @@ public class SignUpActivity extends AppCompatActivity {
                 //Eger kı gırılen verıler ıstenıldıgı gıbı degılse hata mesajları gosterılıyor.
                 else{
                     //Sıfreler uyusmuyorsa.
-                    if (password.getText().toString() != confirmPassword.getText().toString()){
+                    if (!password.getText().toString().equals(confirmPassword.getText().toString())){
                         Toast.makeText(getApplicationContext(),"Sifreler uyuşmuyor!",Toast.LENGTH_LONG).show();
                     }//Istenılen butun verıler gırılmedıgınde.
                     else{

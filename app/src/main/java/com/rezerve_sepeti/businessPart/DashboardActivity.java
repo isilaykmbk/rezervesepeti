@@ -6,11 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
-import android.widget.Button;
-
 import android.widget.EditText;
-
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,11 +16,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import com.rezerve_sepeti.MainActivity;
-
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -103,7 +95,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CheckInputDatas(business_name,business_type,business_phone)){
-                    firebaseFirestore.collection("Restaurants").document(firebaseAuth.getCurrentUser().getUid()).
+                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).
                             update("business_name",business_name.getText(),
                                     "business_phone",business_phone.getText(),
                                     "business_type",business_type.getText()).
@@ -128,10 +120,20 @@ public class DashboardActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                
-
-
-
+                firebaseFirestore.collection("Restaurants").document(firebaseAuth.getCurrentUser().getUid())
+                        .delete()//update yap
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(getApplicationContext(),"Duzenlemeye baslayabilirsiniz.",Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(),"Duzenlemede hata oldu. Tekrar deneyiniz.",Toast.LENGTH_LONG).show();
+                            }
+                        });
             }
         });
 

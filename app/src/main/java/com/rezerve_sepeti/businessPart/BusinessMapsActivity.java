@@ -9,6 +9,9 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -31,10 +34,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-//import com.rezerve_sepeti.databinding.ActivityBusinessMapsBinding;
+//TODO:HALA Harita hareket guncellemelerı olmuyor NOKTA.
 
 public class BusinessMapsActivity extends FragmentActivity implements OnMapReadyCallback {
-//TODO:BENDE HARİTA KONUM GUNCELLEMELRINI ALMIYOR BELKIDE TELEFONU KABLOYLA BAGLIYORUM DIYEDIR.
     private GoogleMap mMap;
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -47,11 +49,16 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         selectedLocation = new Location(LocationManager.GPS_PROVIDER);
         binding = ActivityBusinessMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.business_map_fragment);
         mapFragment.getMapAsync(this);
+        findViewById(R.id.business_map_set_currentposition_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetLocation(currentLocation);
+            }
+        });
     }
 
     @Override
@@ -69,25 +76,32 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
             public void onMapClick(@NonNull @NotNull LatLng latLng) {
                 selectedLocation.setLatitude(latLng.latitude);
                 selectedLocation.setLongitude(latLng.longitude);
-                System.out.println(selectedLocation.toString());
                 SetLocation(selectedLocation);
                 mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(latLng));
             }
         });
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = location -> {
-            currentLocation = new Location(location);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(@NonNull Location location) {
+                currentLocation = new Location(location);
+            }
+            @Override
+            public void onProviderDisabled(@NonNull String provider) {
+                Toast.makeText(getApplicationContext(), "Lutfen GPS Servısınızı acınız!", Toast.LENGTH_SHORT).show();
+            }
         };
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
         }
         else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            currentLocation = new Location(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
+            //currentLocation = new Location(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
             if (currentLocation != null) {
                 LatLng lastUserLocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastUserLocation, 15));
+                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastUserLocation, 15));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lastUserLocation, 15));
                 mMap.addMarker(new MarkerOptions().position(lastUserLocation).title("Current Location"));
             }
         }
@@ -109,14 +123,23 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         }
     }
     private void SetLocation(Location location){
-        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-        try {
-            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            if (addresses != null && addresses.size() > 0){
-                System.out.println(addresses.get(0));
+        if (location != null){
+            Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+            try {
+                List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                if (addresses != null && addresses.size() > 0){
+                    //System.out.println(addresses.get(0).getAddressLine(0));
+                    ((TextView)findViewById(R.id.business_map_address_text)).setText("Address:"+addresses.get(0).getAddressLine(0));
+                }
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()), 15));
+                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()),15));
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(),"Konum adresi suan da alınamıyor.",Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Konum adresi suan da alınamıyor.",Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -14,10 +14,10 @@
         android:background="@drawable/bb"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
         <androidx.constraintlayout.widget.Group
@@ -25,30 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/business_dash_button3"
-            android:layout_width="105dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="70dp"
-            android:text="Geri"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/business_dash_button4"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/business_map_text"
-            app:layout_constraintTop_toBottomOf="@+id/business_map_text"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/business_dash_button4"
-            android:layout_width="112dp"
-            android:layout_height="37dp"
-            android:layout_marginTop="70dp"
-            android:text="İleri"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/business_map_text"
-            app:layout_constraintTop_toBottomOf="@+id/business_map_text"
-            app:layout_constraintVertical_bias="0.0" />
-<!--
+        <!--
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView2"
             android:layout_width="280dp"
@@ -60,6 +37,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
             app:layout_constraintVertical_bias="0.033" />-->
+
+        <Button
+            android:id="@+id/business_dash_button3"
+            android:layout_width="105dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="40dp"
+            android:text="Geri"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/business_dash_button4"
+            app:layout_constraintStart_toStartOf="@+id/business_map_address_text"
+            app:layout_constraintTop_toBottomOf="@+id/business_map_address_text"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <Button
+            android:id="@+id/business_dash_button4"
+            android:layout_width="112dp"
+            android:layout_height="37dp"
+            android:text="İleri"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/business_map_address_text"
+            app:layout_constraintTop_toBottomOf="@+id/business_map_address_text"
+            app:layout_constraintVertical_bias="0.476" />
 
         <fragment
             android:id="@+id/business_map_fragment"
@@ -74,20 +73,32 @@
             app:layout_constraintVertical_bias="0.0"
             tools:context=".businessPart.BusinessMapsActivity" />
 
-        <EditText
-            android:id="@+id/business_map_text"
-            android:layout_width="239dp"
-            android:layout_height="61dp"
-            android:layout_marginTop="35dp"
-            android:ems="10"
-            android:hint="Sözel Açıklaması"
-            android:inputType="textPersonName"
-            android:textColorHint="#291B1B"
+        <TextView
+            android:id="@+id/business_map_address_text"
+            android:layout_width="283dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="50dp"
+            android:contentDescription="Adress"
+            android:text="Adress:"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/business_map_fragment"
+            app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="@+id/business_map_fragment"
             app:layout_constraintTop_toBottomOf="@+id/business_map_fragment"
             app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/business_map_set_currentposition_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/business_map_fragment"
+            app:layout_constraintEnd_toEndOf="@+id/business_map_fragment"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/business_map_fragment"
+            app:layout_constraintTop_toTopOf="@+id/business_map_fragment"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/activity_main_button_border" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

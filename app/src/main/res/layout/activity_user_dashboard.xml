@@ -8,6 +8,24 @@
     tools:context=".userPart.UserDashboardAct"
     tools:visibility="visible">
 
+    <Button
+        android:id="@+id/rezerve"
+        android:layout_width="114dp"
+        android:layout_height="34dp"
+        android:background="@drawable/reserve_button"
+        android:backgroundTint="@color/lpink"
+        android:text="Rezerve Et"
+        android:textAlignment="center"
+        android:textColor="@color/dblue"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/timeScroll"
+        app:layout_constraintEnd_toEndOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="0.291" />
+
     <TextView
         android:id="@+id/RestoranRez"
         android:layout_width="228dp"
@@ -36,24 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/table" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:paddingLeft="12dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:text="Adı:"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/name_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
-        app:layout_constraintVertical_bias="0.0" />
-
+    <!--
     <TextView
         android:id="@+id/name_1"
         android:layout_width="110dp"
@@ -67,55 +68,133 @@
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/date"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="526dp" />
+    -->
+
+    <!--
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="177dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        android:calendarViewShown="false"
+        android:contextClickable="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
-        app:layout_constraintVertical_bias="0.644" />
+        app:layout_constraintTop_toTopOf="@+id/date"
+        app:layout_constraintVertical_bias="0.0" />
+    -->
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="92dp"
-        android:paddingLeft="12dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:text="Tarih:"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="186dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/reserve_button"
-        android:ems="10"
-        android:inputType="date"
-        android:paddingLeft="18dp"
-        android:paddingTop="4dp"
-        android:paddingRight="18dp"
-        android:paddingBottom="4dp"
-        android:textColor="@color/black"
-        android:textSize="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="Tarih Seçmek İçin Tıklayınız..."
+        android:textAlignment="center"
+        android:textColor="@color/dblue"
+        android:textSize="13dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/RestoranRez"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <ScrollView
+        android:id="@+id/tableScroll"
+        android:layout_width="250dp"
+        android:layout_height="365dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="365dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/seatLin"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kişi Sayısı"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkred"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tableLin"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Masa Numarası"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkred"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/timeScroll"
+        android:layout_width="134dp"
+        android:layout_height="365dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tableScroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tableScroll"
+        app:layout_constraintTop_toTopOf="@+id/tableScroll">
+
+        <LinearLayout
+            android:id="@+id/timeLin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="14dp"
+                android:text="Saat"
+                android:textAlignment="center"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 
 
+    <!--
     <LinearLayout
         android:id="@+id/timelin"
         android:layout_width="121dp"
@@ -124,7 +203,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.0">
@@ -220,21 +299,6 @@
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/rezerve"
-        android:layout_width="150dp"
-        android:layout_height="38dp"
-        android:backgroundTint="@color/dblue"
-        android:text="Rezerve Et"
-        android:textColor="@color/white"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timelin"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.953" />
-
+-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

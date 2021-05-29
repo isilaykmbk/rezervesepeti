@@ -57,7 +57,10 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
             @Override
             public void onClick(View v) {
                 SetLocation(currentLocation);
-            }
+                if(currentLocation != null){
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())));
+                }}
         });
     }
 

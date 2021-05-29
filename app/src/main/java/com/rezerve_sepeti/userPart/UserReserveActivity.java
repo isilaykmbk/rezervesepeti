@@ -36,6 +36,7 @@ public class UserReserveActivity extends AppCompatActivity {
             firebaseAuth.signOut();
             Intent intentUserToSignUp = new Intent(UserReserveActivity.this, MainActivity.class);
             startActivity(intentUserToSignUp);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -44,6 +45,7 @@ public class UserReserveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reserve);
+        firebaseAuth = FirebaseAuth.getInstance();
 
     }
 }

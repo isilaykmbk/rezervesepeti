@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 import java.util.Calendar;
@@ -44,7 +45,7 @@ public class UserDashboardAct extends AppCompatActivity {
 
         if(item.getItemId() == R.id.usersignout){
             firebaseAuth.signOut();
-            Intent intentUserToSignUp = new Intent(UserDashboardAct.this, UserSignUpActivity.class);
+            Intent intentUserToSignUp = new Intent(UserDashboardAct.this, MainActivity.class);
             startActivity(intentUserToSignUp);
         }
         return super.onOptionsItemSelected(item);
@@ -55,7 +56,7 @@ public class UserDashboardAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
-
+        firebaseAuth = FirebaseAuth.getInstance();
         findViewById(R.id.rezerve).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

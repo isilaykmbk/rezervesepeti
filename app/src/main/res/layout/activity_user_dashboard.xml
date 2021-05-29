@@ -125,42 +125,28 @@
             android:layout_height="365dp"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/seatLin"
-                android:layout_width="125dp"
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:text="Masa Numarası"
+                android:textAlignment="center"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Kişi Sayısı"
-                    android:textAlignment="center"
-                    android:textColor="@color/darkred"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/tableLin"
-                android:layout_width="125dp"
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="311dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:text="Kişi Sayısı"
+                android:textAlignment="center"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Masa Numarası"
-                    android:textAlignment="center"
-                    android:textColor="@color/darkred"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -175,8 +161,8 @@
 
         <LinearLayout
             android:id="@+id/timeLin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="134dp"
+            android:layout_height="365dp"
             android:orientation="vertical">
 
             <TextView

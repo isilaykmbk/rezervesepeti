@@ -86,7 +86,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/activity_main_button_border"
                 android:drawableLeft="@drawable/ic_baseline_family"
-                android:text="KULLANICI GİRİŞİ "
+                android:text="MÜŞTERİ GİRİŞİ "
                 android:textColor="@color/white"
                 android:paddingLeft="1dp"
                 android:textSize="15dp" />

@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         model.put("table_count",null); //number/int
         model.put("table_info",null); //liste/dizi olabilir.
         model.put("geo_point",null); // new GeoPoint(0,0)
+        model.put("business_address",null); //String
         model.put("business_name",null); //String
         model.put("business_phone",null); //String
         model.put("business_type",null); //String
@@ -59,7 +60,6 @@ public class SignUpActivity extends AppCompatActivity {
         model.put("table_chair_count",null); // liste/dizi olabilir.
         model.put("isOpen",true); //Boolean
         return model;
-
     }
     //TODO:Bu yapı muhtemelen dashboardda masaları duzenlerken kullanılacak.
     HashMap<String,Object> GetTableModel()

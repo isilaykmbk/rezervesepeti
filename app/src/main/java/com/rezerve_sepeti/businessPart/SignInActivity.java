@@ -47,8 +47,7 @@ private FirebaseFirestore firebaseFirestore;
                 firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseAuth.getUid());
-                        reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                          /*reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
                                 if (task.isSuccessful()){
@@ -56,7 +55,7 @@ private FirebaseFirestore firebaseFirestore;
                                         startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
                                         finish();
                                     }else{
-                                        if(task.getResult().get("BusinessName") == null || task.getResult().get("BusinessPhoneNumber") == null || task.getResult().get("BusinessType") == null)
+                                        if(task.getResult().get("business_name") == null || task.getResult().get("business_phone") == null || task.getResult().get("business_type") == null)
                                         {
                                             startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
                                             Toast.makeText(getApplicationContext(),"Lutfen bılgılerınızı doldurunuz!",Toast.LENGTH_LONG).show();
@@ -73,6 +72,32 @@ private FirebaseFirestore firebaseFirestore;
                                     }
                                 }
                             }
+                        });*/
+                        DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseAuth.getUid());
+                        reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                //System.out.println(documentSnapshot.get("business_uuid"));
+                                if(documentSnapshot.get("business_uuid") != null){
+                                    if (documentSnapshot.get("business_name") == null || documentSnapshot.get("business_phone") == null || documentSnapshot.get("business_type") == null){
+                                        startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                                        finish();
+                                    }else if (documentSnapshot.get("business_address") == null || documentSnapshot.get("geo_point") == null){
+                                        startActivity(new Intent(SignInActivity.this,BusinessMapsActivity.class));
+                                        finish();
+                                    }else{
+                                        startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                                        finish();
+                                    }
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"Boyle bır hesap yok.",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull @NotNull Exception e) {
+                                Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                            }
                         });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -84,47 +109,31 @@ private FirebaseFirestore firebaseFirestore;
             }
         });
         if(user != null){
-            DocumentReference reference = firebaseFirestore.collection("develop").document(user.getUid());
-            reference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseAuth.getUid());
+            reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
-                public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                    //TODO:Yukarıdakı ıle aynı bunu bır fonksıyon ıcerısıne alabılırım. Satır 54 !
-                    if (task.isSuccessful()){
-                        if (task.getResult().get("doc") != null){
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if(documentSnapshot.get("business_uuid") != null){
+                        if (documentSnapshot.get("business_name") == null || documentSnapshot.get("business_phone") == null || documentSnapshot.get("business_type") == null){
                             startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
                             finish();
+                        }else if (documentSnapshot.get("business_address") == null || documentSnapshot.get("geo_point") == null){
+                            startActivity(new Intent(SignInActivity.this,BusinessMapsActivity.class));
+                            finish();
                         }else{
-                            if(task.getResult().get("BusinessName") == null || task.getResult().get("BusinessPhoneNumber") == null || task.getResult().get("BusinessType") == null)
-                            {
-                                startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
-                                Toast.makeText(getApplicationContext(),"Lutfen bılgılerınızı doldurunuz!",Toast.LENGTH_LONG).show();
-                                finish();
-                            }else if(task.getResult().get("GeoPoint") == null){
-                                startActivity(new Intent(SignInActivity.this,BusinessMapsActivity.class));
-                                finish();
-                            }else{
-                                //Eger kı gereklı bılgılerın hepsı doldurulmussa otomatıkmen rezervasyonla masalar ve rezervasyonların oldugu bolume gecer
-                                //TODO: Masaların rezervasyonların oldugu actıvıty'ye gecıs yapılmalı.
-                                Toast.makeText(getApplicationContext(),"Basarili bir sekilde giris yapildi",Toast.LENGTH_LONG).show();
-                                //finish();
-                            }
+                            startActivity(new Intent(SignInActivity.this,DashboardActivity.class));
+                            finish();
                         }
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Boyle bır hesap yok.",Toast.LENGTH_SHORT).show();
                     }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull @NotNull Exception e) {
+                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

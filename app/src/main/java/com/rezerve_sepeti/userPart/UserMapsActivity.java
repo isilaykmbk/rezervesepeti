@@ -83,8 +83,8 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
             currentLocation = new Location(location);
             userMarker.position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()));
             //LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude()); //5-1
-            //mMap.clear();
-            //mMap.addMarker(new MarkerOptions().position(userLocation).title("Konumum"));
+            mMap.clear();
+            mMap.addMarker(userMarker);
             //kaydedilmemisse true yap //3-1
              /*if(!trackBoolean) {
                  mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15));   //5-1
@@ -102,6 +102,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 //son bilinen konumu al, kamerayi oraya cevir
                 Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                userMarker.position(new LatLng(lastLocation.getLatitude(),lastLocation.getLongitude()));
                 mMap.addMarker(userMarker);
                 if (lastLocation != null) {
                     currentLocation = new Location(lastLocation);

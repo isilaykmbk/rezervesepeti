@@ -45,18 +45,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-//TODO:HALA Harita hareket guncellemelerı olmuyor NOKTA.
-
 public class BusinessMapsActivity extends FragmentActivity implements OnMapReadyCallback {
+    //---------------------Firabase----------------------
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    //---------------------------------------------------
+    //-------------------Harita/Lokasyon-----------------
     private GoogleMap mMap;
     private LocationManager locationManager;
     private LocationListener locationListener;
     private ActivityBusinessMapsBinding binding;
-    private Location selectedLocation;
-    private Location currentLocation;
+    private Location selectedLocation; // Haritadan elle yada GPS sisteminin anlık olarak gönderdiği mevcut konum arasında seçim yaparken kullanılan değişken.
+    private Location currentLocation; //GPS sistemi açıksa kullanıcının şuanki konumunu gerektiğinde kullanmak için tutan değişken.
+    // currentLocation kullanıcı her hareket ettiğinde güncellenirken selectedLocation sadece kullanıcı haritadan yer seçtiğinde yada currentLocationButton tuşuna basınca güncellenir.
+    //---------------------------------------------------
+    private String addressString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,23 +79,28 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
             SetLocation(currentLocation);
             if(currentLocation != null){
                 selectedLocation = new Location(currentLocation);
+                addressString = SetLocation(selectedLocation);
+                ((TextView)findViewById(R.id.business_map_address_text)).setText("Address:"+addressString);
                 mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())));
+                mMap.addMarker(new MarkerOptions().position(new LatLng(selectedLocation.getLatitude(),selectedLocation.getLongitude())));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(selectedLocation.getLatitude(),selectedLocation.getLongitude()),15));
             }});
         //---------------------------------------------------------------
         //--------------------------Next Button--------------------------
         findViewById(R.id.business_map_next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Kayıt ediceğimiz verileri hashmap şeklinde tutup,firestore database'ine merge seçeneğiyle kayıt ediyoruz.
+                // Merge seçeneği kayıtlı verilerde varsa üzerine yazmaya yoksa sıfırdan key adıyla bir alan oluşturup yazmayı sağlar.
+                // Böylece sadece istediğimiz verileri değiştirmiş oluruz ve diğer verilerimiz silinmez yada değişmez.
                 HashMap<String,Object> model = new HashMap<>();
                 model.put("geo_point",new GeoPoint(selectedLocation.getLatitude(),selectedLocation.getLongitude()));
-                model.put("business_address",((TextView)findViewById(R.id.business_map_address_text)).getText().toString());
+                model.put("business_address",addressString);
                 DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseUser.getUid());
                 reference.set(model, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Veriler guncellendı",Toast.LENGTH_SHORT).show();
-                        //startActivity(new Intent(BusinessMapsActivity.this,bıryere));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -103,6 +112,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         });
         //---------------------------------------------------
         //--------------------Back Button--------------------
+        // Haritadan dashboard ekranına geçmeyi sağlayan tuş.
         findViewById(R.id.business_map_back_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,11 +121,13 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         });
         //----------------------------------------------------
     }
-
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NotNull GoogleMap googleMap) {
         mMap = googleMap;
         //-------------OnMapClick-----------------------
+        //Haritanın üzerine tıklandığında seçilmiş konum değişkeni onMapClick fonksiyonunun döndürdüğü
+        //kordinat düzlemiyle ayarlanır haritadaki işaretçiler silinir ve yerine dödürülen kordinat düzlemine sahip bir işaretçi gelir.
+        //SetLocation fonksiyonu haritanın altında bulunan adres açıklamasını eklemek için çağrılır.
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull @NotNull LatLng latLng) {
@@ -124,6 +136,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                 SetLocation(selectedLocation);
                 mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(latLng));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
             }
         });
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -145,10 +158,8 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         }
         else {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            //currentLocation = new Location(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
             if (currentLocation != null) {
                 LatLng lastUserLocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastUserLocation, 15));
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(lastUserLocation, 15));
                 mMap.addMarker(new MarkerOptions().position(lastUserLocation).title("Current Location"));
             }
@@ -172,17 +183,14 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         }
     }
     //Fonksıyon Strıng deger dondurur sekılde yap.
-    private void SetLocation(Location location){
+    private String SetLocation(Location location){
         if (location != null){
             Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
             try {
                 List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                 if (addresses != null && addresses.size() > 0){
-                    //System.out.println(addresses.get(0).getAddressLine(0));
-                    ((TextView)findViewById(R.id.business_map_address_text)).setText("Address:"+addresses.get(0).getAddressLine(0));
+                    return addresses.get(0).getAddressLine(0);
                 }
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()), 15));
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),location.getLongitude()),15));
             } catch (IOException e) {
                 Toast.makeText(getApplicationContext(),"Konum adresi suan da alınamıyor.",Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
@@ -191,5 +199,6 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         else{
             Toast.makeText(getApplicationContext(),"Konum adresi suan da alınamıyor.",Toast.LENGTH_SHORT).show();
         }
+        return "";
     }
 }

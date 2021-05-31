@@ -60,6 +60,7 @@ public class DashboardActivity extends AppCompatActivity {
         EditText business_name = findViewById(R.id.business_name);
         EditText business_type = findViewById(R.id.business_phone);
         EditText business_phone = findViewById(R.id.business_type);
+
         button4(business_name,business_type, business_phone);
         button();
 
@@ -67,10 +68,12 @@ public class DashboardActivity extends AppCompatActivity {
         reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                business_name.setText((String)documentSnapshot.get("business_name"));
-                business_phone.setText((String)documentSnapshot.get("business_phone"));
-                business_type.setText((String)documentSnapshot.get("business_type"));
-                System.out.println("Verileriniz alınmıstır");
+                if (documentSnapshot.get("business_name") != null)
+                    business_name.setText((String)documentSnapshot.get("business_name"));
+                if (documentSnapshot.get("business_phone") != null)
+                    business_phone.setText((String)documentSnapshot.get("business_phone"));
+                if (documentSnapshot.get("business_type") != null)
+                    business_type.setText((String)documentSnapshot.get("business_type"));
             }
         });
     }
@@ -113,8 +116,7 @@ public class DashboardActivity extends AppCompatActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                firebaseFirestore.collection("documents").document(firebaseAuth.getCurrentUser().getUid())
-                        .delete()//update yap
+                firebaseFirestore.collection("documents").document(firebaseAuth.getCurrentUser().getUid()).delete()//update yap
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {

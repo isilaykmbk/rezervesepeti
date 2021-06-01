@@ -24,14 +24,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.SetOptions;
@@ -101,6 +99,10 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Veriler guncellendı",Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(BusinessMapsActivity.this,TablesActivity.class));
+                        //startActivity(new Intent(BusinessMapsActivity.this,bıryere));
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -110,7 +112,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                 });
             }
         });
-        //---------------------------------------------------
+        //-----------------------------------------
         //--------------------Back Button--------------------
         // Haritadan dashboard ekranına geçmeyi sağlayan tuş.
         findViewById(R.id.business_map_back_button).setOnClickListener(new View.OnClickListener() {

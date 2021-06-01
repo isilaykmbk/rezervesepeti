@@ -63,7 +63,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         button4(business_name,business_type, business_phone);
         button();
-
+        //ekran ilk açıldığında daha önce kaydedilen verilerin gösterilmesi 
         DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseUser.getUid());
         reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override

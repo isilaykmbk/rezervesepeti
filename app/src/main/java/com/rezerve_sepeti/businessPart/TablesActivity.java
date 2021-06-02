@@ -13,7 +13,7 @@ public class TablesActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater(); // inflater is usable for linking two file- xml,layout etc.
-        menuInflater.inflate(R.menu.optionsme,menu);
+        menuInflater.inflate(R.menu.optionsmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }// This method is used for linking menu
 

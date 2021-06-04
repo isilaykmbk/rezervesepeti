@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launch_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
-        <activity android:name=".UserReserveButton"></activity>
+        <activity android:name=".userPart.UserReserveButton"></activity>
         <activity android:name=".businessPart.TablesActivity" />
         <activity android:name=".userPart.UserReserveActivity" />
         <!--

@@ -84,7 +84,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:background="@drawable/activity_main_button_border"
-            android:text="Giriş"
+            android:text="GİRİŞ"
             android:textColor="@color/white"
             android:textSize="15dp"
             android:textStyle="bold"

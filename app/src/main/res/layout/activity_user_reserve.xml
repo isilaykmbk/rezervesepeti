@@ -7,43 +7,38 @@
     tools:context=".userPart.UserReserveActivity"
     android:background="@color/beigelight">
 
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="361dp"
+        android:layout_height="61dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifLin"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/reservepix" />
+
     <LinearLayout
         android:id="@+id/gifLin"
-        android:layout_width="370dp"
-        android:layout_height="399dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176">
+        app:layout_constraintVertical_bias="0.3">
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView"
-            android:layout_width="328dp"
-            android:layout_height="385dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_weight="1"
             android:src="@drawable/reserve" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/textbuttonLin"
-        android:layout_width="372dp"
-        android:layout_height="52dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifLin"
-        app:layout_constraintVertical_bias="0.0">
-
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView1"
-            android:layout_width="388dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:src="@drawable/reserve_text" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

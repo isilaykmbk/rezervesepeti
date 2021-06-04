@@ -1,4 +1,4 @@
-package com.rezerve_sepeti;
+package com.rezerve_sepeti.userPart;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,8 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.rezerve_sepeti.userPart.UserDashboardAct;
+import com.rezerve_sepeti.MainActivity;
+import com.rezerve_sepeti.R;
 
 public class UserReserveButton extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -31,6 +32,7 @@ public class UserReserveButton extends AppCompatActivity {
             firebaseAuth.signOut();
             Intent intentUserToSignUp = new Intent(UserReserveButton.this, MainActivity.class);
             startActivity(intentUserToSignUp);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -40,5 +42,6 @@ public class UserReserveButton extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reserve_button);
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 }

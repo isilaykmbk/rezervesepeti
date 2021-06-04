@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserReserveButton">
+    tools:context=".userPart.UserReserveButton">
 
     <TextView
         android:id="@+id/reserve"
         android:layout_width="267dp"
         android:layout_height="41dp"
         android:text="REZERVELERİM"
-        android:textSize="20dp"
+        android:textSize="28dp"
         android:textStyle="bold"
+        android:backgroundTint="@color/lpink"
         android:textColor="@color/dblue"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,10 +24,11 @@
 
     <Button
         android:id="@+id/cancelTheReservation"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:text="iptal et"
+        android:background="@drawable/activity_main_button_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/postponingTheReservation"
         app:layout_constraintHorizontal_bias="1.0"
@@ -36,9 +38,10 @@
 
     <Button
         android:id="@+id/postponingTheReservation"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
+        android:background="@drawable/activity_main_button_border"
         android:text="ertele"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/scrollRes"

@@ -3,7 +3,6 @@ package com.rezerve_sepeti.userPart;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -27,7 +26,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.rezerve_sepeti.Place;
 import com.rezerve_sepeti.R;
-import com.rezerve_sepeti.UserReserveButton;
 import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
 
 import org.jetbrains.annotations.NotNull;

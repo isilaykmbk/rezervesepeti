@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserReserveButton">
+
+    <TextView
+        android:id="@+id/reserve"
+        android:layout_width="267dp"
+        android:layout_height="41dp"
+        android:text="REZERVELERİM"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/dblue"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/cancelTheReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="iptal et"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/postponingTheReservation"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/scrollRes"
+        app:layout_constraintTop_toBottomOf="@+id/scrollRes"
+        app:layout_constraintVertical_bias="0.7"/>
+
+    <Button
+        android:id="@+id/postponingTheReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="ertele"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollRes"
+        app:layout_constraintStart_toEndOf="@+id/cancelTheReservation"
+        app:layout_constraintTop_toBottomOf="@+id/scrollRes"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ScrollView
+        android:id="@+id/scrollRes"
+        android:layout_width="380dp"
+        android:layout_height="397dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reserve"
+        app:layout_constraintVertical_bias="0.219">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="190dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/restaurantName"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="RESTORAN ADI"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/name_1"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/name_2"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold"  />
+
+                <TextView
+                    android:id="@+id/name_3"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold"  />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="190dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="SAATİ"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/time_1"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timw_2"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold"  />
+
+                <TextView
+                    android:id="@+id/time_3"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:text="***"
+                    android:textAlignment="center"
+                    android:textSize="14dp"
+                    android:textStyle="bold"  />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

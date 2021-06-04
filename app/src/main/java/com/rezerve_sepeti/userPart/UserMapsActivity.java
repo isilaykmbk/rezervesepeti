@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.rezerve_sepeti.Place;
 import com.rezerve_sepeti.R;
+import com.rezerve_sepeti.UserReserveButton;
 import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -44,6 +45,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
     private Location currentLocation;
     private MarkerOptions userMarker;
     //private Location userLocation;//Sonra kullanılabılır
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,13 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserMapsActivity.this, UserDashboardAct.class));
+            }
+        });
+
+        findViewById(R.id.UserReserveButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserMapsActivity.this, UserReserveButton.class));
             }
         });
         //Listener -> {

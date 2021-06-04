@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launch_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
-        <activity android:name=".businessPart.TablesActivity"></activity>
+        <activity android:name=".UserReserveButton"></activity>
+        <activity android:name=".businessPart.TablesActivity" />
         <activity android:name=".userPart.UserReserveActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

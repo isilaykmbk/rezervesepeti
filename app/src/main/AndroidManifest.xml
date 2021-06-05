@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launch_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
-        <activity android:name=".userPart.UserReserveButton"></activity>
+        <activity android:name=".businessPart.BusinessResActivity"></activity>
+        <activity android:name=".userPart.UserReserveButton" />
         <activity android:name=".businessPart.TablesActivity" />
         <activity android:name=".userPart.UserReserveActivity" />
         <!--
@@ -59,7 +60,6 @@
         <activity android:name=".userPart.UserSignInActivity" />
         <activity android:name=".userPart.UserSignUpActivity" />
         <activity android:name=".userPart.UserDashboardAct" />
-        <activity android:name=".userPart.UserReserveActivity" />
     </application>
 
 </manifest>

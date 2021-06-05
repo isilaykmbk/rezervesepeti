@@ -101,7 +101,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                         Toast.makeText(getApplicationContext(),"Veriler guncellendı",Toast.LENGTH_SHORT).show();
 
                         startActivity(new Intent(BusinessMapsActivity.this,TablesActivity.class));
-                        //startActivity(new Intent(BusinessMapsActivity.this,bıryere));
+                        finish();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -119,6 +119,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BusinessMapsActivity.this,DashboardActivity.class));
+                finish();
             }
         });
         //----------------------------------------------------

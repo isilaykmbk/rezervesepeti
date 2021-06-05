@@ -32,9 +32,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.022" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/business_phone"
@@ -48,6 +49,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
             app:layout_constraintVertical_bias="0.0" />
@@ -65,15 +67,14 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="152dp"
-            android:layout_height="191dp"
+            android:layout_width="119dp"
+            android:layout_height="103dp"
             android:layout_marginTop="64dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
-            app:layout_constraintVertical_bias="0.031"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ac93b330800b48fea2a3cb64cd66307c" />
 
         <EditText
@@ -88,9 +89,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.013" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
@@ -107,6 +109,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.85" />
+
+        <EditText
+            android:id="@+id/opening_time"
+            android:layout_width="220dp"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="Açılış Saati"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/business_type"
+            app:layout_constraintVertical_bias="0.066" />
+
+        <EditText
+            android:id="@+id/closing_time"
+            android:layout_width="222dp"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="Kapanış Saati"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/opening_time"
+            app:layout_constraintVertical_bias="0.13" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

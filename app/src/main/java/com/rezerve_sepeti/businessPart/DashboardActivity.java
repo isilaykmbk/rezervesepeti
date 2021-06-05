@@ -58,11 +58,12 @@ public class DashboardActivity extends AppCompatActivity {
         firebaseFirestore=FirebaseFirestore.getInstance();
 
         EditText business_name = findViewById(R.id.business_name);
-        EditText business_type = findViewById(R.id.business_phone);
-        EditText business_phone = findViewById(R.id.business_type);
-
-        button4(business_name,business_type, business_phone);
-        button();
+        EditText business_type = findViewById(R.id.business_type);
+        EditText business_phone = findViewById(R.id.business_phone);
+        EditText closing_time = findViewById(R.id.closing_time);
+        EditText opening_time = findViewById(R.id.opening_time);
+        button4(business_name,business_type, business_phone,closing_time,opening_time);
+        //button();
         //ekran ilk açıldığında daha önce kaydedilen verilerin gösterilmesi 
         DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseUser.getUid());
         reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -74,28 +75,36 @@ public class DashboardActivity extends AppCompatActivity {
                     business_phone.setText((String)documentSnapshot.get("business_phone"));
                 if (documentSnapshot.get("business_type") != null)
                     business_type.setText((String)documentSnapshot.get("business_type"));
+                if (documentSnapshot.get("opening_time") != null)
+                    opening_time.setText((String)documentSnapshot.get("opening_time"));
+                if (documentSnapshot.get("closing_time") != null)
+                    closing_time.setText((String)documentSnapshot.get("closing_time"));
             }
         });
     }
     //firestore holds data according to the hashmap structure. Codes between 68-74th lines describe this structure.
-    HashMap<String,Object> GetBusinessModel(String business_name,String business_type,String business_phone){
+    HashMap<String,Object> GetBusinessModel(String business_name,String business_type,String business_phone,String closing_time, String opening_time){
         HashMap<String,Object> DashboardData= new HashMap<>();
         DashboardData.put("business_name", business_name);
         DashboardData.put("business_type", business_type);
         DashboardData.put("business_phone",business_phone);
+        DashboardData.put("closing_time",closing_time);
+        DashboardData.put("opening_time",opening_time);
         return DashboardData;
     }
-    private boolean CheckInputData(EditText business_name, EditText business_type, EditText business_phone) {
+    private boolean CheckInputData(EditText business_name, EditText business_type, EditText business_phone,EditText closing_time,EditText opening_time) {
         return (business_name.getText().toString().length() > 0 &&
                 business_type.getText().toString().length() > 0 &&
-                business_phone.getText().toString().length() > 0);
+                business_phone.getText().toString().length() > 0 &&
+                closing_time.getText().toString().length()>0 &&
+                opening_time.getText().toString().length()>0);
     }
-    private void button4(EditText business_name, EditText business_type, EditText business_phone) {
+    private void button4(EditText business_name, EditText business_type, EditText business_phone,EditText closing_time,EditText opening_time) {
         findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CheckInputData(business_name,business_type,business_phone)){
-                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),business_phone.getText().toString()), SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
+                if (CheckInputData(business_name,business_type,business_phone,closing_time,opening_time)){
+                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),business_phone.getText().toString(),closing_time.getText().toString(),opening_time.getText().toString()), SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -112,7 +121,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
     }
-    private void button(){
+    /*private void button(){
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -132,6 +141,6 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-    };
+    };*/
 
 }

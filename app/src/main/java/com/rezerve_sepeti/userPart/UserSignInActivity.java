@@ -34,8 +34,9 @@ public class UserSignInActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        EditText emailText = findViewById(R.id.user_signin_username);
-        EditText passwordText = findViewById(R.id.user_signin_password);
+
+        EditText email = findViewById(R.id.user_signin_username);
+        EditText password = findViewById(R.id.user_signin_password);
         findViewById(R.id.user_text_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,7 @@ public class UserSignInActivity extends AppCompatActivity {
         findViewById(R.id.user_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn(emailText.getText().toString(),passwordText.getText().toString());
+                signIn(email.getText().toString(),email.getText().toString());
             }
         });
         if (firebaseUser != null){
@@ -53,19 +54,27 @@ public class UserSignInActivity extends AppCompatActivity {
             reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if(documentSnapshot.get("user_uuid") != null){
-                        startActivity(new Intent(UserSignInActivity.this,UserMapsActivity.class));
-                        finish();
-                    }else{
-                        Toast.makeText(getApplicationContext(),"Boyle bır hesap yok.",Toast.LENGTH_SHORT).show();
+                    if (documentSnapshot.get("user_uuid") != null) {
+                        startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));
+                        firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));
+                                Toast.makeText(getApplicationContext(), "Giris Basarili", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull @NotNull Exception e) {
+                                firebaseAuth.signOut();
+                                Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else
+                    {
+                        Toast.makeText(getApplicationContext(), "Boyle bır hesap yok.", Toast.LENGTH_SHORT).show();
                         firebaseAuth.signOut();
                     }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull @NotNull Exception e) {
-                    firebaseAuth.signOut();
-                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 }
             });
         }

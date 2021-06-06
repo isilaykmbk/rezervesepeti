@@ -12,16 +12,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 import java.util.Calendar;
+import java.util.Map;
 
 public class UserDashboardAct extends AppCompatActivity {
 
@@ -32,6 +41,7 @@ public class UserDashboardAct extends AppCompatActivity {
     private static  final String TAG = "UserDashboardAct";
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,6 +67,9 @@ public class UserDashboardAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        getDataFromFirebase();
+
         findViewById(R.id.rezerve).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +105,45 @@ public class UserDashboardAct extends AppCompatActivity {
 
             }
         };
+
     }
+
+
+
+    public void getDataFromFirebase (){
+
+        CollectionReference collectionReference = firebaseFirestore.collection("develop");
+        collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot queryDocumentSnapshots, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+
+                if (error != null){
+                    Toast.makeText(UserDashboardAct.this, error.getLocalizedMessage().toString(), Toast.LENGTH_LONG).show();
+                }
+
+                if (queryDocumentSnapshots != null){
+
+                    for (DocumentSnapshot snapshot : queryDocumentSnapshots.getDocuments()){
+
+                        Map<String,Object> data = snapshot.getData();
+
+                        String business_mail = (String) data.get("business_mail");
+                                
+                        System.out.println(business_mail);
+
+                    }
+                }
+
+
+            }
+        });
+
+    }
+
+        public void UserMapButton(){
+        
+        }
+
 }
 
 

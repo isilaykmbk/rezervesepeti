@@ -63,10 +63,7 @@ public class UserDashboardAct extends AppCompatActivity {
                 startActivity(new Intent(UserDashboardAct.this, UserReserveActivity.class));
             }
         });
-
-
         // Tarih icin gerekli kod
-
         mDisplayDate = (TextView) findViewById(R.id.date);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override

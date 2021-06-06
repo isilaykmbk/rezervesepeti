@@ -24,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -48,6 +49,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    MarkerOptions marker = new MarkerOptions();
     //---------------------------------------------------
     //-------------------Harita/Lokasyon-----------------
     private GoogleMap mMap;
@@ -74,10 +76,10 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         firebaseUser = firebaseAuth.getCurrentUser();
         //--------------------Current Location Button//--------------------
         findViewById(R.id.business_map_set_currentposition_button).setOnClickListener(v -> {
-            SetLocation(currentLocation);
+            setLocation(currentLocation);
             if(currentLocation != null){
                 selectedLocation = new Location(currentLocation);
-                addressString = SetLocation(selectedLocation);
+                addressString = setLocation(selectedLocation);
                 ((TextView)findViewById(R.id.business_map_address_text)).setText("Address:"+addressString);
                 mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(new LatLng(selectedLocation.getLatitude(),selectedLocation.getLongitude())));
@@ -93,16 +95,16 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                 // Böylece sadece istediğimiz verileri değiştirmiş oluruz ve diğer verilerimiz silinmez yada değişmez.
                 HashMap<String,Object> model = new HashMap<>();
                 model.put("geo_point",new GeoPoint(selectedLocation.getLatitude(),selectedLocation.getLongitude()));
+                model.put("latitude",selectedLocation.getLatitude());
+                model.put("longitude",selectedLocation.getLongitude());
                 model.put("business_address",addressString);
                 DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseUser.getUid());
                 reference.set(model, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Veriler guncellendı",Toast.LENGTH_SHORT).show();
-
                         startActivity(new Intent(BusinessMapsActivity.this,TablesActivity.class));
                         finish();
-
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -112,7 +114,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                 });
             }
         });
-        //-----------------------------------------
+        //---------------------------------------------------
         //--------------------Back Button--------------------
         // Haritadan dashboard ekranına geçmeyi sağlayan tuş.
         findViewById(R.id.business_map_back_button).setOnClickListener(new View.OnClickListener() {
@@ -136,10 +138,16 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
             public void onMapClick(@NonNull @NotNull LatLng latLng) {
                 selectedLocation.setLatitude(latLng.latitude);
                 selectedLocation.setLongitude(latLng.longitude);
-                SetLocation(selectedLocation);
+                setLocation(selectedLocation);
                 mMap.clear();
                 mMap.addMarker(new MarkerOptions().position(latLng));
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+            }
+        });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(@NonNull @NotNull Marker marker) {
+                return false;
             }
         });
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -186,7 +194,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         }
     }
     //Fonksıyon Strıng deger dondurur sekılde yap.
-    private String SetLocation(Location location){
+    private String setLocation(Location location){
         if (location != null){
             Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
             try {
@@ -195,7 +203,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                     return addresses.get(0).getAddressLine(0);
                 }
             } catch (IOException e) {
-                Toast.makeText(getApplicationContext(),"Konum adresi suan da alınamıyor.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }

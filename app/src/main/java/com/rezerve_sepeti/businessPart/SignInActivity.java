@@ -63,12 +63,14 @@ private FirebaseFirestore firebaseFirestore;
                                         finish();
                                     }
                                 }else{
+                                    firebaseAuth.signOut();
                                     Toast.makeText(getApplicationContext(),"Boyle bır hesap yok.",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull @NotNull Exception e) {
+                                firebaseAuth.signOut();
                                 Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -99,6 +101,7 @@ private FirebaseFirestore firebaseFirestore;
                         }
                     }else{
                         Toast.makeText(getApplicationContext(),"Boyle bır hesap yok.",Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
                     }
                 }
             }).addOnFailureListener(new OnFailureListener() {

@@ -23,7 +23,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.rezerve_sepeti.Place;
 import com.rezerve_sepeti.R;
 import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
@@ -31,17 +38,21 @@ import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class UserMapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
-
+public class UserMapsActivity extends FragmentActivity implements OnMapReadyCallback{
+    private FirebaseFirestore firebaseFirestore;
     private GoogleMap mMap;
-    LocationManager locationManager;            //1-0
-    LocationListener locationListener;          //1-0
+    private LocationManager locationManager;
+    private LocationListener locationListener;
     private ActivityUserMapsBinding binding;
     private Location currentLocation;
-    private MarkerOptions userMarker;
+    private Marker userMarker;
+    private ArrayList<Marker> businessMarkerList;
+    private boolean dataSwitch = false;
+    private float radius = 5;
     //private Location userLocation;//Sonra kullanılabılır
 
     @Override
@@ -53,48 +64,42 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        userMarker = new MarkerOptions();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         findViewById(R.id.UserMapButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserMapsActivity.this, UserDashboardAct.class));
             }
         });
-
         findViewById(R.id.UserReserveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserMapsActivity.this, UserReserveButton.class));
             }
         });
-        //Listener -> {
-        //Veritabaninda bilgi degistirilmesi olursa burasi tekrar cagirilir
-        //Alinana verileride ekrana marker koyarak gosterirsiniz.
-        // }
-        //TODO:Burasını haritaya bir buton ekleyip idsini assagıdakı gıbı yaptıktan sonra ac.
-        /*
         findViewById(R.id.user_map_currentpos_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LatLng currentLatLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
             }
-        });*/
+        });
     }
     //HARITA SUAN DA KULLANICININ MARKER'INI HARKET ETTIKCE GUNCELLIYOR ANCAK SUANKI KONUMU GOSTER TUSUNA BASMADAN
     //KAMERAYI ORAYA GOTURMUYOR...
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setOnMapLongClickListener((GoogleMap.OnMapLongClickListener) this);
+        userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Suanki konum"));
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE); //1-1 alt yerler dahil
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(@NonNull Location location) {
                 currentLocation = new Location(location);
-                userMarker.position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()));
-                mMap.clear();
-                mMap.addMarker(userMarker);
+                userMarker.setPosition(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()));
+                if (!dataSwitch){
+                getBusinessData();
+                }
             }
             @Override
             public void onProviderDisabled(@NonNull String provider) {
@@ -115,16 +120,12 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                 if (lastLocation != null) {
                     currentLocation = new Location(lastLocation);
                     LatLng currentLatLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-                    userMarker.position(currentLatLng);
-                    mMap.addMarker(userMarker);
+                    userMarker.setPosition(currentLatLng);
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
                 }
             }
+            getBusinessData();
         }
-        /*else{           //2-0
-
-        }*/
-
     @Override //izin ilk defa verildiginde ne yapilacak 1-3
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -135,52 +136,52 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                     // 2-1
                     Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    mMap.addMarker(userMarker);
                     if (lastLocation != null) {
                         currentLocation = new Location(lastLocation);
                         LatLng currentLatLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-                        userMarker.position(currentLatLng);
+                        userMarker.setPosition(currentLatLng);
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
                     }
                 }
             }
         }
     }
-    //TODO: Uzun basılan noktanın adresı gerekıyor mu ?
-    @Override
-    public void onMapLongClick(@NonNull @NotNull LatLng latLng) {
-        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-        String address = "";
+    private void getBusinessData(){
+        /*.whereEqualTo("isOpen",true).
+                    whereGreaterThanOrEqualTo("latitude",currentLocation.getLatitude()-radius).
+                    whereLessThanOrEqualTo("latitude",currentLocation.getLatitude()+radius).
+                    whereGreaterThanOrEqualTo("longitude",currentLocation.getLongitude()-radius).
+        whereLessThanOrEqualTo("longitude",currentLocation.getLongitude()+radius)
+        */
+        if (currentLocation == null){
+            firebaseFirestore.collection("develop").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    System.out.println("Basarili");
+                    mMap.clear();
+                    userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())).title("Suanki konum"));
+                    businessMarkerList = new ArrayList<>();
+                    int i = 0;
+                    for (QueryDocumentSnapshot snapshot:queryDocumentSnapshots){
+                        System.out.println(snapshot);
 
-        try {
-            List<Address> addressList = geocoder.getFromLocation(latLng.latitude,latLng.longitude,1);
-
-            if(addressList != null && addressList.size() > 0) {
-                if(addressList.get(0).getThoroughfare() != null) {
-                    address += addressList.get(0).getThoroughfare();
-
-                    if (addressList.get(0).getSubThoroughfare() != null) {
-                        address += " ";
-                        address += addressList.get(0).getSubThoroughfare();
+                        LatLng latLng = new LatLng((double)snapshot.get("latitude"),(double)snapshot.get("longtitude"));
+                        businessMarkerList.add(mMap.addMarker(new MarkerOptions().position(latLng).title((String) snapshot.get("business_name"))));
+                        businessMarkerList.get(i).setTag((String)snapshot.get("business_uuid"));
+                        i++;
                     }
                 }
-            } else {
-                address = "New Place";
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull @NotNull Exception e) {
+                    System.out.println("Basarisiz");
+                    Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+            dataSwitch = true;
         }
-
-
-
-        mMap.addMarker(new MarkerOptions().position(latLng).title("Restoran"));
-
-        Double latitude = latLng.latitude;
-        Double longitude = latLng.longitude;
-
-        Place place = new Place(address, latitude, longitude);
-        System.out.println(address); // !!! Logcat bolumunu acip haritaya uzun basarsaniz adres gozukuyor
-
+    }
+    private void changeRadius(float radius){
+        this.radius = radius;
     }
 }

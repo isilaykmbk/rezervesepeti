@@ -27,6 +27,7 @@ import java.util.HashMap;
 public class UserSignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class UserSignUpActivity extends AppCompatActivity {
         EditText name = findViewById(R.id.user_signup_name);
         EditText surname = findViewById(R.id.user_signup_surname);
         EditText phone = findViewById(R.id.user_phone);
-        userSignupButton(email.getText().toString(), password.getText().toString(), name.getText().toString(), surname.getText().toString(), phone.getText().toString());
+        userSignupButton(email, password, name , surname, phone);
 
         findViewById(R.id.user_text_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,12 +48,12 @@ public class UserSignUpActivity extends AppCompatActivity {
             }
         });
     }
-    private boolean CheckInputData(String name, String surname, String email, String phone) {
-        return (name.length() > 0 &&
-                surname.length() > 0 &&
-                email.length() > 0 &&
-                phone.length() > 0);
 
+    private boolean CheckInputData(TextView name, TextView surname, TextView email, TextView phone) {
+        return (name.getText().toString().length() > 0 &&
+                surname.getText().toString().length() > 0 &&
+                email.getText().toString().length() > 0 &&
+                phone.getText().toString().length() > 0);
     }
 
     HashMap<String, Object> GetUserModel(String name, String surname, String email, String phone) {
@@ -64,18 +65,17 @@ public class UserSignUpActivity extends AppCompatActivity {
         return model;
     }
 
-    private void userSignupButton(String email, String password, String name, String surname, String phone) {
+    private void userSignupButton(EditText email, EditText password, EditText name, EditText surname, EditText phone) {
         findViewById(R.id.user_signup_button).setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                if(CheckInputData(email,name,surname,phone)){
-                    firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                if (CheckInputData(email, name, surname, phone)) {
+                    firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            firebaseFirestore.collection("users").document(firebaseAuth.getCurrentUser().getUid()).set(GetUserModel(name,surname,email,phone)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            firebaseFirestore.collection("users").document(firebaseAuth.getCurrentUser().getUid()).set(GetUserModel(name.getText().toString(), surname.getText().toString(), email.getText().toString(), phone.getText().toString())).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(getApplicationContext(),"User Created.",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "User Created.", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(UserSignUpActivity.this, UserSignInActivity.class));
                                     finish();
                                 }
@@ -93,5 +93,5 @@ public class UserSignUpActivity extends AppCompatActivity {
             }
         });
     }
-
 }
+

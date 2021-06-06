@@ -26,7 +26,6 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 import java.util.Calendar;
@@ -55,7 +54,7 @@ public class UserDashboardAct extends AppCompatActivity {
 
         if(item.getItemId() == R.id.usersignout){
             firebaseAuth.signOut();
-            Intent intentUserToSignUp = new Intent(UserDashboardAct.this, MainActivity.class);
+            Intent intentUserToSignUp = new Intent(UserDashboardAct.this, UserSignInActivity.class);
             startActivity(intentUserToSignUp);
         }
         return super.onOptionsItemSelected(item);

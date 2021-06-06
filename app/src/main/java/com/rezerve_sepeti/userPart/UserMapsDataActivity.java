@@ -20,12 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.rezerve_sepeti.R;
-import com.rezerve_sepeti.businessPart.BusinessMapsActivity;
-import com.rezerve_sepeti.businessPart.DashboardActivity;
-
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 
 public class UserMapsDataActivity extends AppCompatActivity {

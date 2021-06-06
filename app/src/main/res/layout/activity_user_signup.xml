@@ -29,14 +29,14 @@
             android:layout_gravity="center"
             android:textSize="24dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/user_signup_username"
-            app:layout_constraintEnd_toEndOf="@+id/user_signup_username"
+            app:layout_constraintBottom_toTopOf="@+id/user_signup_surname"
+            app:layout_constraintEnd_toEndOf="@+id/user_signup_surname"
             app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="@+id/user_signup_username"
+            app:layout_constraintStart_toStartOf="@+id/user_signup_surname"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/user_signup_fullname"
+            android:id="@+id/user_signup_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
             app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <EditText
-            android:id="@+id/user_signup_username"
+            android:id="@+id/user_signup_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -74,10 +74,10 @@
             android:paddingBottom="6dp"
             android:textColor="@color/border"
             android:textColorHint="@color/border"
-            app:layout_constraintEnd_toEndOf="@+id/user_signup_fullname"
+            app:layout_constraintEnd_toEndOf="@+id/user_signup_name"
             app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="@+id/user_signup_fullname"
-            app:layout_constraintTop_toBottomOf="@+id/user_signup_fullname" />
+            app:layout_constraintStart_toStartOf="@+id/user_signup_name"
+            app:layout_constraintTop_toBottomOf="@+id/user_signup_name" />
 
         <EditText
             android:id="@+id/user_signup_email"
@@ -96,27 +96,28 @@
             android:paddingBottom="6dp"
             android:textColor="@color/border"
             android:textColorHint="@color/border"
-            app:layout_constraintEnd_toEndOf="@+id/user_signup_username"
+            app:layout_constraintEnd_toEndOf="@+id/user_signup_surname"
             app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="@+id/user_signup_username"
-            app:layout_constraintTop_toBottomOf="@+id/user_signup_username" />
+            app:layout_constraintStart_toStartOf="@+id/user_signup_surname"
+            app:layout_constraintTop_toBottomOf="@+id/user_signup_surname" />
 
         <EditText
+            android:id="@+id/user_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="32dp"
             android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Telefon"
+            android:inputType="phone"
             android:paddingLeft="8dp"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="6dp"
-            android:ems="10"
-            android:hint="Telefon"
             android:textColor="@color/border"
-            android:textColorHint="@color/border"
-            android:inputType="phone" />
+            android:textColorHint="@color/border" />
 
         <EditText
             android:id="@+id/user_signup_password"

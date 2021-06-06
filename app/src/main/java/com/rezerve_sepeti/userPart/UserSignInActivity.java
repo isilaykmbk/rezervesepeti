@@ -21,14 +21,15 @@ import com.rezerve_sepeti.R;
 
 public class UserSignInActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_signin);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        EditText emailText = findViewById(R.id.user_signin_username);
-        EditText passwordText = findViewById(R.id.user_signin_password);
+        EditText email = findViewById(R.id.user_signin_username);
+        EditText password = findViewById(R.id.user_signin_password);
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         findViewById(R.id.user_text_signup_button).setOnClickListener(new View.OnClickListener() {
@@ -41,7 +42,7 @@ public class UserSignInActivity extends AppCompatActivity {
         findViewById(R.id.user_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signInWithEmailAndPassword(emailText.getText().toString(),passwordText.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));

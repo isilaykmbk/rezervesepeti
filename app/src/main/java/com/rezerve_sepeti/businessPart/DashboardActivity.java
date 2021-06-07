@@ -75,10 +75,10 @@ public class DashboardActivity extends AppCompatActivity {
                     business_phone.setText((String)documentSnapshot.get("business_phone"));
                 if (documentSnapshot.get("business_type") != null)
                     business_type.setText((String)documentSnapshot.get("business_type"));
-                if (documentSnapshot.get("opening_time") != null)
-                    opening_time.setText((String)documentSnapshot.get("opening_time"));
+                /*if (documentSnapshot.get("opening_time") != null)
+                    opening_time.setText((Long)documentSnapshot.get("opening_time"));
                 if (documentSnapshot.get("closing_time") != null)
-                    closing_time.setText((String)documentSnapshot.get("closing_time"));
+                    closing_time.setText((Long)documentSnapshot.get("closing_time"));*/
             }
         });
     }

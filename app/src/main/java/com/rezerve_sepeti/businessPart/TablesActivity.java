@@ -3,11 +3,11 @@ package com.rezerve_sepeti.businessPart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +25,7 @@ import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TablesActivity extends AppCompatActivity{
@@ -35,8 +36,9 @@ public class TablesActivity extends AppCompatActivity{
     private Button newButton;
     private TextView tablePcsTextView;
     private int tablePcs;
-    private int[] tableChairPcs;
     private int pageIndex;
+    private int numOfPage;
+    private ArrayList<Integer> tableChairPcs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,34 +46,39 @@ public class TablesActivity extends AppCompatActivity{
         firebaseAuth= FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        tablePcsTextView = (TextView) findViewById(R.id.table_pcss);
-        updateTablePcs(Integer.parseInt(tablePcsTextView.getText().toString()));
+        tablePcsTextView = findViewById(R.id.table_pcss);
         //If table_pcs is not null, then show the number that has been taken before.
         DocumentReference reference = firebaseFirestore.collection("develop").document(firebaseUser.getUid());
         reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                //TODO Burdaki yazim olarak kisaltilabilir.
+                //tablePcs = pcs != null ? pcs.intValue() : 0 boyle;
                 if (documentSnapshot.get("table_pcs") != null){
-                    tablePcs = (int)documentSnapshot.get("table_pcs");
+                    Long pcs = (Long) documentSnapshot.get("table_pcs");
+                    tablePcs = pcs.intValue();
                 }else{
                     tablePcs = 0;
                 }
-                if(documentSnapshot.get("table_chair_count")!=null){
-                    tableChairPcs = (int[])documentSnapshot.get("table_chair_count");
+                if(documentSnapshot.get("table_chair_count") != null){
+                    tableChairPcs = (ArrayList<Integer>) documentSnapshot.get("table_chair_count");
                 }else{
-                    tableChairPcs = new int[0];
+                    tableChairPcs = new ArrayList<>(tablePcs);
                 }
+                tablePcsTextView.setText(""+tablePcs);
+                initTables(tablePcs);
                 onOffSwitch.setChecked(documentSnapshot.getBoolean("isOpen"));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull @NotNull Exception e) {
                 tablePcs = 0;
-                tableChairPcs = new int[0];
+                tableChairPcs = new ArrayList<>();
+                initTables(tablePcs);
+                tablePcsTextView.setText("" + tablePcs);
                 Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
             }
         });
-        tablePcsTextView.setText(tablePcs);
         onOffSwitch = (Switch)findViewById(R.id.business_table_onOff_switch);
         onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -94,9 +101,19 @@ public class TablesActivity extends AppCompatActivity{
                 startActivity(new Intent(TablesActivity.this,BusinessMapsActivity.class));
             }
         });
-        initTables(tablePcs);
+        updateTablePcs();
+
+        findViewById(R.id.business_save_button).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TablesActivity.this,BusinessResActivity.class));
+            }});
+
     }
+
+
     void initTables(int pcs){
+        ((GridLayout)findViewById(R.id.business_table_tables)).removeAllViewsInLayout();
         for (int i = 0; i < (Math.min(pcs, 9)); i++) {
             System.out.println(i);
             newButton = new Button(this);
@@ -115,18 +132,30 @@ public class TablesActivity extends AppCompatActivity{
             ((GridLayout)findViewById(R.id.business_table_tables)).addView(newButton);
         }
     }
-    private void updateTablePcs(int table_pcs) {
+    //TODO: Hazirda bulunana sandalye verisini suan tamamen siliyorum,eski listedeki verileri yeni listeye kaydetmem lazim.
+    private void updateTablePcs() {
         findViewById(R.id.business_table_tableSave).setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View v) {
-                if (table_pcs > 0){
+                if(tablePcsTextView.getText().toString().length() > 0){
+                    tablePcs = Integer.parseInt(tablePcsTextView.getText().toString());
+                }
+                if (tablePcs >= 0){
+                    tableChairPcs = new ArrayList<>();
+                    for (int i = 0; i < tablePcs; i++) {
+                        tableChairPcs.add(0);
+                    }
                     HashMap<String,Object> tableData= new HashMap<>();
-                    tableData.put("table_pcs", table_pcs);
+                    tableData.put("table_pcs", tablePcs);
+                    tableData.put("table_chair_pcs",tableChairPcs);
                     firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(tableData, SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(),"Masa Sayısı Alınmıştır!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Masa Sayısı Alınmıştır!"+tablePcs,Toast.LENGTH_LONG).show();
+                            initTables(tablePcs);
+                            numOfPage = tablePcs / 10 + 1;
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -135,11 +164,12 @@ public class TablesActivity extends AppCompatActivity{
                         }
                     });
                 }
-
             }
         });
     }
     private void tableButtonClicked(int i){
         System.out.println("Basilan Tus:"+i*pageIndex);
     }
+
+
 }

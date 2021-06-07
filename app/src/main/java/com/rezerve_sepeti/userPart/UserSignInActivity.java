@@ -37,6 +37,7 @@ public class UserSignInActivity extends AppCompatActivity {
 
         EditText email = findViewById(R.id.user_signin_username);
         EditText password = findViewById(R.id.user_signin_password);
+
         findViewById(R.id.user_text_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,11 +47,11 @@ public class UserSignInActivity extends AppCompatActivity {
         findViewById(R.id.user_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn(email.getText().toString(),email.getText().toString());
+                signIn(email.getText().toString(),password.getText().toString());
             }
         });
         if (firebaseUser != null){
-            DocumentReference reference = firebaseFirestore.collection("develop_user").document(firebaseUser.getUid());
+            DocumentReference reference = firebaseFirestore.collection("users").document(firebaseUser.getUid());
             reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -83,7 +84,7 @@ public class UserSignInActivity extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                DocumentReference reference = firebaseFirestore.collection("develop_user").document(firebaseAuth.getUid());
+                DocumentReference reference = firebaseFirestore.collection("users").document(firebaseAuth.getUid());
                 reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {

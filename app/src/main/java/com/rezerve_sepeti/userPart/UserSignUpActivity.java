@@ -32,6 +32,7 @@ public class UserSignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_signup);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
         EditText email = findViewById(R.id.user_signup_email);
         EditText password = findViewById(R.id.user_signup_password);
         EditText name = findViewById(R.id.user_signup_name);
@@ -54,12 +55,14 @@ public class UserSignUpActivity extends AppCompatActivity {
                 phone.getText().toString().length() > 0);
     }
 
-    HashMap<String, Object> GetUserModel(String name, String surname, String email, String phone) {
+    HashMap<String, Object> GetUserModel(String name, String surname, String email, String phone,String password, String uuId) {
         HashMap<String, Object> model = new HashMap<>();
         model.put("user_name", name);
         model.put("user_surname", surname);
         model.put("user_mail", email);
         model.put("user_phone", phone);
+        model.put("user_password", password);
+        model.put("user_uuid", uuId);
         return model;
     }
 
@@ -70,12 +73,11 @@ public class UserSignUpActivity extends AppCompatActivity {
                     firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            firebaseFirestore.collection("users").document(firebaseAuth.getCurrentUser().getUid()).set(GetUserModel(name.getText().toString(), surname.getText().toString(), email.getText().toString(), phone.getText().toString())).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            firebaseFirestore.collection("users").document(firebaseAuth.getCurrentUser().getUid()).set(GetUserModel(name.getText().toString(), surname.getText().toString(), email.getText().toString(), phone.getText().toString(),password.getText().toString(),firebaseAuth.getCurrentUser().getUid())).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(getApplicationContext(), "User Created.", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(UserSignUpActivity.this, UserSignInActivity.class));
-                                    finish();
                                 }
                             });
                         }

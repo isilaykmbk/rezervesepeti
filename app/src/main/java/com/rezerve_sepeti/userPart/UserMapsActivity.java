@@ -90,7 +90,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Suanki konum"));
+        userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Konumum"));
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE); //1-1 alt yerler dahil
         locationListener = new LocationListener() {
             @Override
@@ -103,7 +103,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
             }
             @Override
             public void onProviderDisabled(@NonNull String provider) {
-                Toast.makeText(getApplicationContext(), "Lutfen GPS Servısınızı acınız!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Lütfen GPS Servisinizi açınız!", Toast.LENGTH_SHORT).show();
             }
         };
             //izin verilmemis ise //1-2
@@ -157,9 +157,9 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
             firebaseFirestore.collection("develop").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                    System.out.println("Basarili");
+                    System.out.println("Başarılı");
                     mMap.clear();
-                    userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())).title("Suanki konum"));
+                    userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())).title("Konumum"));
                     businessMarkerList = new ArrayList<>();
                     int i = 0;
                     for (QueryDocumentSnapshot snapshot:queryDocumentSnapshots){
@@ -174,7 +174,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull @NotNull Exception e) {
-                    System.out.println("Basarisiz");
+                    System.out.println("Başarısız");
                     Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 }
             });

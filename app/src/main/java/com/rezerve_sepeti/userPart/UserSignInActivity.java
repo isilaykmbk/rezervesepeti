@@ -57,20 +57,6 @@ public class UserSignInActivity extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     if (documentSnapshot.get("user_uuid") != null) {
                         startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));
-                        firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                startActivity(new Intent(UserSignInActivity.this, UserMapsActivity.class));
-                                Toast.makeText(getApplicationContext(), "Giris Basarili", Toast.LENGTH_LONG).show();
-                                finish();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull @NotNull Exception e) {
-                                firebaseAuth.signOut();
-                                Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
                     }else
                     {
                         Toast.makeText(getApplicationContext(), "Boyle bır hesap yok.", Toast.LENGTH_SHORT).show();

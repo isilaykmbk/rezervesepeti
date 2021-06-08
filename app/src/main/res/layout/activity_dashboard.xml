@@ -116,7 +116,8 @@
             android:layout_height="41dp"
             android:ems="10"
             android:hint="Açılış Saati"
-            android:inputType="textPersonName"
+            android:textColorHint="@color/black"
+            android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,12 +130,14 @@
             android:layout_height="41dp"
             android:ems="10"
             android:hint="Kapanış Saati"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/opening_time"
-            app:layout_constraintVertical_bias="0.13" />
+            app:layout_constraintVertical_bias="0.13"
+            android:textColorHint="@color/black"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

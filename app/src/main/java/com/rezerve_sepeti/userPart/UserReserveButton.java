@@ -1,22 +1,28 @@
 package com.rezerve_sepeti.userPart;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
 public class UserReserveButton extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,5 +49,19 @@ public class UserReserveButton extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reserve_button);
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore= FirebaseFirestore.getInstance();
+
+        TextView business_name = findViewById(R.id.name_1);
+        DocumentReference reference = firebaseFirestore.collection("develop").document();
+        reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.get("business_name") != null)
+                    business_name.setText((String)documentSnapshot.get("business_name"));
+    }
+
+
+
+});
     }
 }

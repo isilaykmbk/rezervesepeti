@@ -20,16 +20,28 @@
         tools:context=".MainActivity">
 
         <Button
+            android:id="@+id/business_map_back_button"
+            android:layout_width="110dp"
+            android:layout_height="46dp"
+            android:text="Geri"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.898" />
+
+        <Button
             android:id="@+id/business_map_next_button"
             android:layout_width="110dp"
             android:layout_height="46dp"
             android:text="İleri"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.638"
+            app:layout_constraintHorizontal_bias="0.829"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.153" />
+            app:layout_constraintVertical_bias="0.898" />
 
         <Button
             android:id="@+id/business_map_reserves_button"
@@ -38,10 +50,10 @@
             android:text="Rezerveler"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.292"
+            app:layout_constraintHorizontal_bias="0.878"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_map_dash_button"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.102" />
 
         <Button
             android:id="@+id/business_map_tables_button"
@@ -50,7 +62,7 @@
             android:text="Masalar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.663"
+            app:layout_constraintHorizontal_bias="0.543"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.102" />
@@ -64,7 +76,7 @@
             android:text="Dashboard"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.293"
+            app:layout_constraintHorizontal_bias="0.206"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/business_res_peoplenumber"
             app:layout_constraintVertical_bias="0.129" />
@@ -98,7 +110,7 @@
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
-            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintVertical_bias="0.306"
             tools:context=".businessPart.BusinessMapsActivity" />
 
         <TextView
@@ -111,7 +123,7 @@
             app:layout_constraintEnd_toEndOf="@+id/business_map_fragment"
             app:layout_constraintStart_toStartOf="@+id/business_map_fragment"
             app:layout_constraintTop_toTopOf="@+id/business_map_fragment"
-            app:layout_constraintVertical_bias="0.814" />
+            app:layout_constraintVertical_bias="0.775" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/business_map_set_currentposition_button"

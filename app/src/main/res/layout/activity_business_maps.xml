@@ -20,6 +20,56 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="110dp"
+            android:layout_height="46dp"
+            android:text="İleri"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.797"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.917" />
+
+        <Button
+            android:id="@+id/business_reservedbutton2"
+            android:layout_width="129dp"
+            android:layout_height="43dp"
+            android:text="Rezerveler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.226"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/business_map_fragment"
+            app:layout_constraintVertical_bias="0.828" />
+
+        <Button
+            android:id="@+id/business_tablebutton3"
+            android:layout_width="125dp"
+            android:layout_height="41dp"
+            android:text="Masalar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.786"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.834" />
+
+        <Button
+            android:id="@+id/business_dashbutton2"
+            android:layout_width="130dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="92dp"
+            android:text="Dashboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.227"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/business_res_peoplenumber"
+            app:layout_constraintVertical_bias="0.129" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"
             android:layout_width="wrap_content"
@@ -37,16 +87,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
             app:layout_constraintVertical_bias="0.033" />-->
-
-        <Button
-            android:id="@+id/business_map_next_button"
-            android:layout_width="112dp"
-            android:layout_height="37dp"
-            android:text="İleri"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/business_map_address_text"
-            app:layout_constraintTop_toBottomOf="@+id/business_map_address_text"
-            app:layout_constraintVertical_bias="0.476" />
 
         <fragment
             android:id="@+id/business_map_fragment"

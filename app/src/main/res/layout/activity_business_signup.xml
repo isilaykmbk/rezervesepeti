@@ -56,39 +56,6 @@
         app:layout_constraintStart_toStartOf="@+id/business_signup_username"
         app:layout_constraintTop_toBottomOf="@+id/business_signup_username" />
 
-    <EditText
-        android:id="@+id/business_signup_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="******"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/business_signup_email"
-        app:layout_constraintStart_toStartOf="@+id/business_signup_email"
-        app:layout_constraintTop_toBottomOf="@+id/business_signup_email" />
-
-    <EditText
-        android:id="@+id/busi_inputConformPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="******"
-        android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/business_signup_password"
-        app:layout_constraintStart_toStartOf="@+id/business_signup_password"
-        app:layout_constraintTop_toBottomOf="@+id/business_signup_password" />
 
     <Button
         android:id="@+id/business_signup_button"
@@ -109,4 +76,39 @@
         app:layout_constraintEnd_toEndOf="@+id/business_signup_button"
         app:layout_constraintStart_toStartOf="@+id/business_signup_button"
         app:layout_constraintTop_toBottomOf="@+id/business_signup_button" />
+
+    <EditText
+        android:id="@+id/business_signup_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Şifre"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/business_signup_email"
+        app:layout_constraintStart_toStartOf="@+id/business_signup_email"
+        app:layout_constraintTop_toBottomOf="@+id/business_signup_email" />
+
+    <EditText
+        android:id="@+id/busi_inputConformPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Şifre"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/business_signup_password"
+        app:layout_constraintStart_toStartOf="@+id/business_signup_password"
+        app:layout_constraintTop_toBottomOf="@+id/business_signup_password" />
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

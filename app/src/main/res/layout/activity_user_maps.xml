@@ -23,15 +23,16 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:backgroundTint="@color/darkred"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.968"
+        app:layout_constraintVertical_bias="0.958"
         app:srcCompat="@drawable/activity_main_button_border" />
 
     <LinearLayout
@@ -121,7 +122,6 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/activity_main_button_border"
-                android:onClick="UserMapButton"
                 android:text="İleri"
                 android:textAlignment="center"
                 android:textSize="11dp"

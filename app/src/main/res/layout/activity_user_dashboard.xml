@@ -173,29 +173,29 @@
                         android:id="@+id/tab1"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:text="MASA 1"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="MASA 1" />
 
                     <TextView
                         android:id="@+id/tab2"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:text="MASA 2"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="MASA 2" />
 
                     <TextView
                         android:id="@+id/tab3"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:text="MASA 4"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="MASA 4" />
 
                     <TextView
                         android:id="@+id/tab4"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:text="MASA 5"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="MASA 5" />
 
                 </LinearLayout>
 
@@ -208,29 +208,29 @@
                         android:id="@+id/textView8"
                         android:layout_width="120dp"
                         android:layout_height="20dp"
-                        android:text="1"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="1" />
 
                     <TextView
                         android:id="@+id/textView9"
                         android:layout_width="120dp"
                         android:layout_height="20dp"
-                        android:text="2"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="2" />
 
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="120dp"
                         android:layout_height="20dp"
-                        android:text="3"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="3" />
 
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="120dp"
                         android:layout_height="20dp"
-                        android:text="4"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:text="4" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -307,29 +307,6 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTable"
-        android:layout_width="246dp"
-        android:layout_height="357dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="6dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tableSeatScroll"
-        app:layout_constraintEnd_toEndOf="@+id/tableSeatScroll"
-        app:layout_constraintStart_toStartOf="@+id/tableSeatScroll"
-        app:layout_constraintTop_toTopOf="@+id/tableSeatScroll" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTime"
-        android:layout_width="134dp"
-        android:layout_height="364dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/timeScroll"
-        app:layout_constraintEnd_toEndOf="@+id/timeScroll"
-        app:layout_constraintStart_toStartOf="@+id/timeScroll"
-        app:layout_constraintTop_toTopOf="@+id/timeScroll" />
 
 
     <!--

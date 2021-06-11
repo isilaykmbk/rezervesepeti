@@ -78,7 +78,6 @@ public class UserSignUpActivity extends AppCompatActivity {
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(getApplicationContext(), "User Created.", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(UserSignUpActivity.this, UserSignInActivity.class));
-                                    finish();
                                 }
                             });
                         }

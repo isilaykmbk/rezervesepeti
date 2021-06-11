@@ -1,7 +1,6 @@
 package com.rezerve_sepeti.businessPart;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -130,7 +129,7 @@ public class TablesActivity extends AppCompatActivity{
                 startActivity(new Intent(TablesActivity.this,BusinessMapsActivity.class));
             }
         });
-        findViewById(R.id.business_save_button).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.business_table_save_button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TablesActivity.this,BusinessResActivity.class));

@@ -100,7 +100,7 @@ public class DashboardActivity extends AppCompatActivity {
                 opening_time.getText().toString().length()>0);
     }
     private void button4(EditText business_name, EditText business_type, EditText business_phone,EditText closing_time,EditText opening_time) {
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_dashboard_next_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CheckInputData(business_name,business_type,business_phone,closing_time,opening_time)){

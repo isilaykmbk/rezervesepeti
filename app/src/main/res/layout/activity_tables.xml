@@ -13,7 +13,7 @@
         android:background="@drawable/bb"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -26,35 +26,36 @@
             android:layout_marginEnd="72dp"
             android:text="Geri"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/business_save_button"
-            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintEnd_toStartOf="@+id/business_table_save_button"
+            app:layout_constraintHorizontal_bias="0.772"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.815" />
+            app:layout_constraintVertical_bias="0.867" />
 
         <Button
-            android:id="@+id/business_save_button"
+            android:id="@+id/business_table_save_button"
             android:layout_width="112dp"
             android:layout_height="37dp"
-            android:layout_marginEnd="56dp"
+            android:layout_marginEnd="52dp"
             android:text="Kaydet"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.814" />
+            app:layout_constraintVertical_bias="0.863" />
 
         <TextView
             android:id="@+id/business_table_count"
-            android:layout_width="177dp"
-            android:layout_height="50dp"
+            android:layout_width="193dp"
+            android:layout_height="35dp"
             android:text="Masa Sayısı Seçiniz"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.288"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.155" />
+            app:layout_constraintVertical_bias="0.246" />
 
         <Switch
             android:id="@+id/business_table_onOff_switch"
@@ -65,10 +66,10 @@
             android:textOn="Acik"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintHorizontal_bias="0.952"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.046"/>
+            app:layout_constraintVertical_bias="0.164" />
 
         <GridLayout
             android:id="@+id/business_table_tables"
@@ -81,7 +82,7 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.631" />
 
         <Button
             android:id="@+id/business_table_tableSave"
@@ -90,10 +91,10 @@
             android:text="Kaydet"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintHorizontal_bias="0.892"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/business_table_onOff_switch"
-            app:layout_constraintVertical_bias="0.127" />
+            app:layout_constraintVertical_bias="0.027" />
 
         <EditText
             android:id="@+id/table_pcss"
@@ -104,9 +105,45 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.096" />
+            app:layout_constraintVertical_bias="0.152" />
+
+        <Button
+            android:id="@+id/business_tables_dash_button"
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="28dp"
+            android:text="Dashboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.043" />
+
+        <Button
+            android:id="@+id/business_tables_maps_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.043" />
+
+        <Button
+            android:id="@+id/business_tables_reserves_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rezerveler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.879"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.043" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

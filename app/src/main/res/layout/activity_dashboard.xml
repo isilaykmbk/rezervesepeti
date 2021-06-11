@@ -20,6 +20,30 @@
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
+        <Button
+            android:id="@+id/business_dash_reserves_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rezerveler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.904"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.054" />
+
+        <Button
+            android:id="@+id/business_dash_tables_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masalar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.054" />
+
         <EditText
             android:id="@+id/business_type"
             android:layout_width="222dp"
@@ -55,7 +79,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/business_dashboard_next_button"
             android:layout_width="110dp"
             android:layout_height="46dp"
             android:layout_marginEnd="56dp"
@@ -63,7 +87,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.852" />
+            app:layout_constraintVertical_bias="0.879" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -74,7 +98,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.032"
             app:srcCompat="@drawable/ac93b330800b48fea2a3cb64cd66307c" />
 
         <EditText
@@ -100,7 +124,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/business_dashboard_set_button"
             android:layout_width="110dp"
             android:layout_height="46dp"
             android:layout_marginStart="56dp"
@@ -108,7 +132,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
+            app:layout_constraintVertical_bias="0.881" />
 
         <EditText
             android:id="@+id/opening_time"
@@ -137,6 +161,18 @@
             app:layout_constraintTop_toBottomOf="@+id/opening_time"
             app:layout_constraintVertical_bias="0.13"
             android:textColorHint="@color/black"/>
+
+        <Button
+            android:id="@+id/business_dash_maps_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.179"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.054" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

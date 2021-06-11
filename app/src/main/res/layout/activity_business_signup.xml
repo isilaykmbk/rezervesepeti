@@ -16,16 +16,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <EditText
         android:id="@+id/business_signup_username"
-        android:layout_width="267dp"
-        android:layout_height="46dp"
+        android:layout_width="286dp"
+        android:layout_height="73dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -36,13 +37,14 @@
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
         android:id="@+id/business_signup_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="284dp"
+        android:layout_height="78dp"
         android:layout_marginTop="16dp"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -61,9 +63,10 @@
         android:id="@+id/business_signup_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Kayıt Ol"
         app:layout_constraintEnd_toEndOf="@+id/busi_inputConformPassword"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/busi_inputConformPassword"
         app:layout_constraintTop_toBottomOf="@+id/busi_inputConformPassword" />
 
@@ -79,8 +82,8 @@
 
     <EditText
         android:id="@+id/business_signup_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="287dp"
+        android:layout_height="67dp"
         android:layout_marginTop="16dp"
         android:drawablePadding="10dp"
         android:ems="10"
@@ -96,8 +99,8 @@
 
     <EditText
         android:id="@+id/busi_inputConformPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="289dp"
+        android:layout_height="59dp"
         android:layout_marginTop="16dp"
         android:drawablePadding="10dp"
         android:ems="10"

@@ -164,7 +164,6 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                     int i = 0;
                     for (QueryDocumentSnapshot snapshot:queryDocumentSnapshots){
                         System.out.println(snapshot);
-
                         LatLng latLng = new LatLng((double)snapshot.get("latitude"),(double)snapshot.get("longtitude"));
                         businessMarkerList.add(mMap.addMarker(new MarkerOptions().position(latLng).title((String) snapshot.get("business_name"))));
                         businessMarkerList.get(i).setTag((String)snapshot.get("business_uuid"));

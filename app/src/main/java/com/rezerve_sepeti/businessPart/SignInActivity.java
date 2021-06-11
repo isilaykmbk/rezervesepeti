@@ -44,6 +44,7 @@ private FirebaseFirestore firebaseFirestore;
         findViewById(R.id.business_signin_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TODO: Email ve password icerigi bossa program cokuyor.
                 firebaseAuth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {

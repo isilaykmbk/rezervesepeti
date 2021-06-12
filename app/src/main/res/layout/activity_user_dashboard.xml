@@ -135,6 +135,7 @@
                     android:id="@+id/tabS"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+<<<<<<< HEAD
                     android:orientation="horizontal">
 
                     <TextView
@@ -239,6 +240,15 @@
                     </LinearLayout>
 
                 </LinearLayout>
+=======
+                    android:orientation="vertical"/>
+
+                <LinearLayout
+                    android:id="@+id/chairLayout"
+                    android:layout_width="120dp"
+                    android:layout_height="340dp"
+                    android:orientation="vertical"/>
+>>>>>>> be76cf0d1cbcea35caf53d9f1689daf33ff9714e
 
             </LinearLayout>
         </ScrollView>
@@ -266,16 +276,32 @@
             android:textSize="14dp"
             android:textStyle="bold" />
 
+<<<<<<< HEAD
         <ScrollView
             android:id="@+id/timeScroll"
             android:layout_width="134dp"
             android:layout_height="345dp"
             android:layout_marginEnd="8dp">
+=======
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:paddingLeft="14dp"
+                android:text="Saat"
+                android:textAlignment="viewStart"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+>>>>>>> be76cf0d1cbcea35caf53d9f1689daf33ff9714e
 
             <LinearLayout
+                android:id="@+id/user_dashboard_timeline"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+<<<<<<< HEAD
                 android:orientation="vertical">
 
                 <TextView
@@ -309,6 +335,9 @@
                     android:layout_weight="1"
                     android:text="*"
                     android:textAlignment="center" />
+=======
+                android:orientation="vertical"/>
+>>>>>>> be76cf0d1cbcea35caf53d9f1689daf33ff9714e
 
             </LinearLayout>
         </ScrollView>

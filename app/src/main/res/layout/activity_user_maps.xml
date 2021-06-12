@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="4dp"
-                android:text="Boş Masa Sayısı:"
+                android:text="Boş Masa Sayısı: WIP"
                 android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold" />

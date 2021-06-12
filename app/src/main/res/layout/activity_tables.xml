@@ -73,15 +73,15 @@
 
         <Button
             android:id="@+id/business_table_tableSave"
-            android:layout_width="96dp"
-            android:layout_height="42dp"
-            android:text="Kaydet"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="155dp"
+            android:layout_height="46dp"
+            android:text="Masa Sayısı"
+            app:layout_constraintBottom_toTopOf="@+id/business_table_save_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.892"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_table_onOff_switch"
-            app:layout_constraintVertical_bias="0.027" />
+            app:layout_constraintTop_toBottomOf="@+id/business_tables_reserves_button"
+            app:layout_constraintVertical_bias="0.223" />
 
         <EditText
             android:id="@+id/table_pcss"
@@ -101,24 +101,24 @@
             android:id="@+id/business_tables_dash_button"
             android:layout_width="130dp"
             android:layout_height="48dp"
-            android:layout_marginStart="28dp"
-            android:text="Dashboard"
+            android:layout_marginStart="4dp"
+            android:text="Pano"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.009" />
 
         <Button
             android:id="@+id/business_tables_maps_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Maps"
+            android:layout_width="147dp"
+            android:layout_height="47dp"
+            android:text="Konum"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/business_tables_reserves_button"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/business_tables_dash_button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.01" />
 
         <Button
             android:id="@+id/business_tables_reserves_button"
@@ -127,10 +127,10 @@
             android:text="Rezerveler"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.879"
+            app:layout_constraintHorizontal_bias="0.996"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.009" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

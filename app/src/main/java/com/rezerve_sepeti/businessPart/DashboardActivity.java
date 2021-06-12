@@ -135,7 +135,7 @@ public class DashboardActivity extends AppCompatActivity {
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(),"Verileriniz güncellenmiştir.",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Verileriniz kaydedilmiştir.",Toast.LENGTH_LONG).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

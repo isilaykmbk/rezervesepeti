@@ -33,8 +33,8 @@
 
         <Button
             android:id="@+id/business_map_reserves_button"
-            android:layout_width="129dp"
-            android:layout_height="43dp"
+            android:layout_width="138dp"
+            android:layout_height="55dp"
             android:text="Rezerveler"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,26 +45,25 @@
 
         <Button
             android:id="@+id/business_map_tables_button"
-            android:layout_width="125dp"
-            android:layout_height="41dp"
+            android:layout_width="135dp"
+            android:layout_height="55dp"
             android:text="Masalar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.543"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/business_map_reserves_button"
+            app:layout_constraintStart_toEndOf="@+id/business_map_dash_button"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.102" />
+            app:layout_constraintVertical_bias="0.104" />
 
         <Button
             android:id="@+id/business_map_dash_button"
-            android:layout_width="130dp"
-            android:layout_height="37dp"
+            android:layout_width="132dp"
+            android:layout_height="54dp"
             android:layout_marginTop="28dp"
-            android:layout_marginBottom="616dp"
-            android:text="Dashboard"
+            android:layout_marginBottom="600dp"
+            android:text="Pano"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.206"
+            app:layout_constraintHorizontal_bias="0.138"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/business_res_peoplenumber"
             app:layout_constraintVertical_bias="0.129" />

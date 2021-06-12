@@ -122,19 +122,31 @@ public class TablesActivity extends AppCompatActivity{
             }
         });
         //---------------------------------------------------
-        //Harita ekranina geri donebilmek icin geri tusu.
-        findViewById(R.id.business_table_back_button).setOnClickListener(new View.OnClickListener() {
+        //Codes between 126th-131st lines allow to change screen to map
+        findViewById(R.id.business_tables_maps_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TablesActivity.this,BusinessMapsActivity.class));
+                finish();
             }
         });
-        findViewById(R.id.business_table_save_button).setOnClickListener(new View.OnClickListener(){
+        //Codes between 134th-139th lines allow to change screen to res
+        findViewById(R.id.business_tables_reserves_button).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TablesActivity.this,BusinessResActivity.class));
+                finish();
             }});
         updateTableNChairPcs();
+
+        //Codes between 143rd-148th lines allow to change screen to dashboard
+        findViewById(R.id.business_tables_dash_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TablesActivity.this,DashboardActivity.class));
+                finish();
+            }
+        });
     }
     //----------------------------------------------------
     //-----------------------InitTable--------------------------

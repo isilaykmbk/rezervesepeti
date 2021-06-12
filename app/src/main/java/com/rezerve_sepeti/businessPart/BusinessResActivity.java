@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,30 @@ public class BusinessResActivity extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
         //getDataForUsers();
         getDataForRes();
+        //allow to change screen to tables
+        findViewById(R.id.business_res_tables_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusinessResActivity.this,TablesActivity.class));
+                finish();
+            }
+        });
+        //allow to change screen to map
+        findViewById(R.id.business_res_maps_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusinessResActivity.this,BusinessMapsActivity.class));
+                finish();
+            }
+        });
+        //allow to change screen to dashboard
+        findViewById(R.id.business_res_dashboard_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusinessResActivity.this,DashboardActivity.class));
+                finish();
+            }
+        });
 
     }
 

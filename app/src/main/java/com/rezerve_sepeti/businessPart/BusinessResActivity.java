@@ -89,7 +89,7 @@ public class BusinessResActivity extends AppCompatActivity {
     public void getDataForRes(){
         CollectionReference develop_res = firebaseFirestore.collection("develop_res");
         //dizme işlemi tarihe göre artarak:
-        develop_res.orderBy("user_res_date", Query.Direction.ASCENDING); //TODO: Siralamayi degistir.
+        develop_res.orderBy("user_res_date", Query.Direction.ASCENDING);
         develop_res.whereEqualTo("business_uuid",firebaseUser.getUid()).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot querySnapshot, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {

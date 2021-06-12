@@ -86,6 +86,7 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
     }//this method is used for what will be done when something has selected on menu
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

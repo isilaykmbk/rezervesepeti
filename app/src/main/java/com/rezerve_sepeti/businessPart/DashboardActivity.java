@@ -75,10 +75,10 @@ public class DashboardActivity extends AppCompatActivity {
                     business_phone.setText((String)documentSnapshot.get("business_phone"));
                 if (documentSnapshot.get("business_type") != null)
                     business_type.setText((String)documentSnapshot.get("business_type"));
-                if (documentSnapshot.get("opening_time") != null)
-                    opening_time.setText(Long.toString((Long)documentSnapshot.get("opening_time")));
+                /*if (documentSnapshot.get("opening_time") != null)
+                    opening_time.setText((Long)documentSnapshot.get("opening_time"));
                 if (documentSnapshot.get("closing_time") != null)
-                    closing_time.setText(Long.toString((Long)documentSnapshot.get("closing_time")));
+                    closing_time.setText((Long)documentSnapshot.get("closing_time"));*/
             }
         });
         //Codes between 85th-91st lines allow to change screen to map
@@ -110,7 +110,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
     //firestore holds data according to the hashmap structure. Codes between 68-74th lines describe this structure.
-    HashMap<String,Object> GetBusinessModel(String business_name,String business_type,String business_phone,int closing_time, int opening_time){
+    HashMap<String,Object> GetBusinessModel(String business_name,String business_type,String business_phone,String closing_time, String opening_time){
         HashMap<String,Object> DashboardData= new HashMap<>();
         DashboardData.put("business_name", business_name);
         DashboardData.put("business_type", business_type);
@@ -131,7 +131,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CheckInputData(business_name,business_type,business_phone,closing_time,opening_time)){
-                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),business_phone.getText().toString(),Integer.parseInt(closing_time.getText().toString()),Integer.parseInt(opening_time.getText().toString())), SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
+                    firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(GetBusinessModel(business_name.getText().toString(),business_type.getText().toString(),business_phone.getText().toString(),closing_time.getText().toString(),opening_time.getText().toString()), SetOptions.merge()).// yoksa ekliyor varsa üzerine yazıyor.
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

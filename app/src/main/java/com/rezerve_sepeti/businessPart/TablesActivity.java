@@ -155,6 +155,7 @@ public class TablesActivity extends AppCompatActivity{
     void initTables(int pcs){
         ((GridLayout)findViewById(R.id.business_table_tables)).removeAllViewsInLayout();
         for (int i = 0; i < (Math.min(pcs, 9)); i++) {
+            System.out.println(i);
             newButton = new Button(this);
             newButton.setText(i+".Button");
             //ResourcesCompat.getDrawable(res, R.drawable.expand_collapse, null);

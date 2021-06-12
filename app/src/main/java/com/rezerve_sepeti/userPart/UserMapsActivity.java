@@ -3,7 +3,6 @@ package com.rezerve_sepeti.userPart;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -12,7 +11,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,10 +39,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 public class UserMapsActivity extends FragmentActivity implements OnMapReadyCallback{
     private FirebaseFirestore firebaseFirestore;
@@ -55,11 +51,8 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
     private Location currentLocation;
     private Marker userMarker;
     private ArrayList<Marker> businessMarkerList;
-    private Map<String,Place> businessList;
-    private Place currentBusiness;
     private boolean dataSwitch = false;
     private float radius = 5;
-    private SharedPreferences sharedPreferences;
     //private Location userLocation;//Sonra kullanılabılır
 
     @Override
@@ -72,15 +65,10 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         firebaseFirestore = FirebaseFirestore.getInstance();
-        sharedPreferences = this.getSharedPreferences("package com.rezerve_sepeti.userPart",Context.MODE_PRIVATE);
         findViewById(R.id.UserMapButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (currentBusiness != null){
-                    Intent toUserDashboard = new Intent(UserMapsActivity.this, UserDashboardAct.class);
-                    toUserDashboard.putExtra("selectedBusiness_UUID",currentBusiness.getUuid());
-                    startActivity(toUserDashboard);
-                }
+                startActivity(new Intent(UserMapsActivity.this, UserDashboardAct.class));
             }
         });
         findViewById(R.id.UserReserveButton).setOnClickListener(new View.OnClickListener() {
@@ -136,20 +124,6 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
                 }
             }
-            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(@NonNull @NotNull Marker marker) {
-                    TextView businessName = findViewById(R.id.restaurant_name);
-                    TextView businessType = findViewById(R.id.restaurant_type);
-                    TextView tablePcs = findViewById(R.id.all_desk_number);
-                    //System.out.println(marker.getTag());
-                    currentBusiness = businessList.get((String) marker.getTag());
-                    businessName.setText("Restorant Adi: " + currentBusiness.getName());
-                    businessType.setText("Restorant Turu: " + currentBusiness.getType());
-                    tablePcs.setText("Toplam Masa Sayisi: " + currentBusiness.getTablePcs());
-                    return false;
-                }
-            });
             getBusinessData();
         }
     @Override //izin ilk defa verildiginde ne yapilacak 1-3
@@ -173,32 +147,26 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         }
     }
     private void getBusinessData(){
-        //TODO: Kullaniciya sectigi noktadan kac km yaricaptaki restoranlari gormek istediginin inputu alindiginda eklenicektir.
         /*.whereEqualTo("isOpen",true).
                     whereGreaterThanOrEqualTo("latitude",currentLocation.getLatitude()-radius).
                     whereLessThanOrEqualTo("latitude",currentLocation.getLatitude()+radius).
                     whereGreaterThanOrEqualTo("longitude",currentLocation.getLongitude()-radius).
         whereLessThanOrEqualTo("longitude",currentLocation.getLongitude()+radius)
         */
-        if (currentLocation != null){
+        if (currentLocation == null){
             firebaseFirestore.collection("develop").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     System.out.println("Başarılı");
                     mMap.clear();
-                    if (currentLocation != null) {
-                        userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())).title("Konumum"));
-                    }
+                    userMarker = mMap.addMarker(new MarkerOptions().position(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude())).title("Konumum"));
                     businessMarkerList = new ArrayList<>();
-                    businessList = new HashMap<>();
                     int i = 0;
                     for (QueryDocumentSnapshot snapshot:queryDocumentSnapshots){
-                        //System.out.println(snapshot);
-                        LatLng latLng = new LatLng((double)snapshot.get("latitude"),(double)snapshot.get("longitude"));
+                        System.out.println(snapshot);
+                        LatLng latLng = new LatLng((double)snapshot.get("latitude"),(double)snapshot.get("longtitude"));
                         businessMarkerList.add(mMap.addMarker(new MarkerOptions().position(latLng).title((String) snapshot.get("business_name"))));
                         businessMarkerList.get(i).setTag((String)snapshot.get("business_uuid"));
-                        //System.out.println(businessMarkerList.get(i).getTag());
-                        businessList.put((String) snapshot.get("business_uuid"),new Place((String) snapshot.get("business_name"),(String) snapshot.get("business_uuid"),(String) snapshot.get("business_type"), Math.toIntExact(((Long) snapshot.get("table_pcs")))));
                         i++;
                     }
                 }

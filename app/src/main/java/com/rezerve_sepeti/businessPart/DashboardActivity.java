@@ -81,6 +81,33 @@ public class DashboardActivity extends AppCompatActivity {
                     closing_time.setText((Long)documentSnapshot.get("closing_time"));*/
             }
         });
+        //Codes between 85th-91st lines allow to change screen to map
+        findViewById(R.id.business_dash_maps_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));
+                finish();
+
+            }
+        });
+        //Codes between 94th-99th lines allow to change screen to tables
+        findViewById(R.id.business_dash_tables_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this,TablesActivity.class));
+                finish();
+
+            }
+        });
+        //Codes between 103rd-108th lines allow to change screen to res
+        findViewById(R.id.business_dash_reserves_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardActivity.this,BusinessResActivity.class));
+                finish();
+
+            }
+        });
     }
     //firestore holds data according to the hashmap structure. Codes between 68-74th lines describe this structure.
     HashMap<String,Object> GetBusinessModel(String business_name,String business_type,String business_phone,String closing_time, String opening_time){
@@ -109,7 +136,6 @@ public class DashboardActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getApplicationContext(),"Verileriniz güncellenmiştir.",Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(DashboardActivity.this,BusinessMapsActivity.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

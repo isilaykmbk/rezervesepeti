@@ -140,17 +140,30 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                 });
             }
         });
-        //---------------------------------------------------
-        //--------------------Back Button--------------------
-        // Haritadan dashboard ekranına geçmeyi sağlayan tuş.
-        findViewById(R.id.business_map_back_button).setOnClickListener(new View.OnClickListener() {
+        //Codes between 144th-151st lines allow to change screen to dashboard
+        findViewById(R.id.business_map_dash_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BusinessMapsActivity.this,DashboardActivity.class));
                 finish();
             }
         });
-        //----------------------------------------------------
+        //Codes between 152nd-158th lines allow to change screen to tables
+        findViewById(R.id.business_map_tables_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusinessMapsActivity.this,TablesActivity.class));
+                finish();
+            }
+        });
+        //Codes between 144th-160th lines allow to change screen to res
+        findViewById(R.id.business_map_reserves_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusinessMapsActivity.this,BusinessResActivity.class));
+                finish();
+            }
+        });
     }
     @Override
     public void onMapReady(@NotNull GoogleMap googleMap) {

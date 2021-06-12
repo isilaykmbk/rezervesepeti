@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userPart.UserReserveActivity"
-    android:background="@color/beigelight">
+    android:background="@color/beigelight"
+    tools:context=".userPart.UserReserveActivity">
 
 
     <ImageView
@@ -40,5 +40,21 @@
             android:src="@drawable/reserve" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="74dp"
+        android:layout_height="43dp"
+        android:backgroundTint="@color/lblue"
+        android:gravity="center"
+        android:text="geri"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gifLin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.34" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

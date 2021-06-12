@@ -49,7 +49,9 @@
             android:paddingRight="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/border"
+            android:textColorHighlight="#000000"
             android:textColorHint="@color/border"
+            android:textColorLink="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +72,9 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textColor="@color/border"
+            android:textColorHighlight="#000000"
             android:textColorHint="@color/border"
+            android:textColorLink="#000000"
             app:layout_constraintEnd_toEndOf="@+id/user_signin_username"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="@+id/user_signin_username"
@@ -114,6 +118,8 @@
                 android:layout_marginLeft="50dp"
                 android:text="Hesabın yok mu?"
                 android:textColor="@color/black"
+                android:textColorHighlight="#000000"
+                android:textColorLink="#000000"
                 android:textSize="16dp" />
 
             <TextView

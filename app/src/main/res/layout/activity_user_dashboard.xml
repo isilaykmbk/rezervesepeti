@@ -113,6 +113,7 @@
         android:id="@+id/tableLinLayout"
         android:layout_width="250dp"
         android:layout_height="365dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
@@ -120,128 +121,121 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tableText"
+                android:layout_width="125dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="Masa Numarası"
+                android:textAlignment="center"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/seatText"
+                android:layout_width="125dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="Kişi Sayısı"
+                android:textAlignment="center"
+                android:textColor="@color/darkred"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <ScrollView
             android:id="@+id/tableSeatScroll"
             android:layout_width="250dp"
-            android:layout_height="365dp">
+            android:layout_height="345dp">
 
             <LinearLayout
-                android:id="@+id/tableSeatLin"
+                android:id="@+id/add"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/tabS"
-                    android:layout_width="match_parent"
+                    android:id="@+id/addTable"
+                    android:layout_width="125dp"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tableText"
+                        android:id="@+id/tab1"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:layout_weight="1"
-                        android:text="Masa Numarası"
-                        android:textAlignment="center"
-                        android:textColor="@color/darkred"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
+                        android:text="MASA 1"
+                        android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/seatText"
+                        android:id="@+id/tab2"
                         android:layout_width="125dp"
                         android:layout_height="20dp"
-                        android:layout_weight="1"
-                        android:text="Kişi Sayısı"
-                        android:textAlignment="center"
-                        android:textColor="@color/darkred"
-                        android:textSize="14dp"
-                        android:textStyle="bold" />
+                        android:text="MASA 2"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/tab3"
+                        android:layout_width="125dp"
+                        android:layout_height="20dp"
+                        android:text="MASA 4"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/tab4"
+                        android:layout_width="125dp"
+                        android:layout_height="20dp"
+                        android:text="MASA 5"
+                        android:textAlignment="center" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/add"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:id="@+id/countLin"
+                    android:layout_width="120dp"
+                    android:layout_height="340dp"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/addTable"
-                        android:layout_width="125dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tab1"
-                            android:layout_width="125dp"
-                            android:layout_height="20dp"
-                            android:text="MASA 1"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/tab2"
-                            android:layout_width="125dp"
-                            android:layout_height="20dp"
-                            android:text="MASA 2"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/tab3"
-                            android:layout_width="125dp"
-                            android:layout_height="20dp"
-                            android:text="MASA 4"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/tab4"
-                            android:layout_width="125dp"
-                            android:layout_height="20dp"
-                            android:text="MASA 5"
-                            android:textAlignment="center" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textView8"
                         android:layout_width="120dp"
-                        android:layout_height="340dp"
-                        android:orientation="vertical">
+                        android:layout_height="20dp"
+                        android:text="1"
+                        android:textAlignment="center" />
 
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:text="1"
-                            android:textAlignment="center" />
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:text="2"
+                        android:textAlignment="center" />
 
-                        <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:text="2"
-                            android:textAlignment="center" />
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:text="3"
+                        android:textAlignment="center" />
 
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:text="3"
-                            android:textAlignment="center" />
-
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="120dp"
-                            android:layout_height="20dp"
-                            android:text="4"
-                            android:textAlignment="center" />
-                    </LinearLayout>
-
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:text="4"
+                        android:textAlignment="center" />
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
 
     <LinearLayout
@@ -249,11 +243,11 @@
         android:layout_width="134dp"
         android:layout_height="365dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tableLinLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tableLinLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9">
+        app:layout_constraintTop_toTopOf="@+id/tableLinLayout">
+
         <TextView
             android:id="@+id/timeText"
             android:layout_width="match_parent"

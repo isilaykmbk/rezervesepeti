@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class UserReservations extends AppCompatActivity {
-    
+
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private RadioGroup reservationRadioGroup = new RadioGroup(this);

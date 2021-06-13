@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/user_reserved_back_button"
         android:layout_width="74dp"
         android:layout_height="43dp"
         android:backgroundTint="@color/lblue"

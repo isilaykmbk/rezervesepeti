@@ -166,15 +166,13 @@
                     android:id="@+id/addTable"
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"/>
 
-                </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/countLin"
+                    android:id="@+id/chairLayout"
                     android:layout_width="120dp"
                     android:layout_height="340dp"
-                    android:orientation="vertical">
-                </LinearLayout>
+                    android:orientation="vertical"/>
 
             </LinearLayout>
         </ScrollView>
@@ -210,13 +208,11 @@
             android:layout_marginEnd="8dp">
 
             <LinearLayout
+                android:id="@+id/user_dashboard_timeline"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-
-            </LinearLayout>
+                android:orientation="vertical"/>
         </ScrollView>
     </LinearLayout>
 

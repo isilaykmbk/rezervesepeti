@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rezervesepeti">
         <activity android:name=".businessPart.BusinessResActivity"></activity>
-        <activity android:name=".userPart.UserReserveButton" />
+        <activity android:name=".userPart.UserReservations" />
         <activity android:name=".businessPart.TablesActivity" />
         <activity android:name=".userPart.UserReserveActivity" />
         <!--

@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -27,20 +25,15 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.rezerve_sepeti.Place;
 import com.rezerve_sepeti.R;
 import com.rezerve_sepeti.databinding.ActivityUserMapsBinding;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class UserMapsActivity extends FragmentActivity implements OnMapReadyCallback{
     private FirebaseFirestore firebaseFirestore;
@@ -74,7 +67,7 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
         findViewById(R.id.UserReserveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserMapsActivity.this, UserReserveButton.class));
+                startActivity(new Intent(UserMapsActivity.this, UserReservations.class));
             }
         });
         findViewById(R.id.user_map_currentpos_button).setOnClickListener(new View.OnClickListener() {

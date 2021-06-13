@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.rezerve_sepeti.MainActivity;
 import com.rezerve_sepeti.R;
 
-public class UserReserveButton extends AppCompatActivity {
+public class UserReservations extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firebaseFirestore;
@@ -36,7 +36,7 @@ public class UserReserveButton extends AppCompatActivity {
 
         if(item.getItemId() == R.id.usersignout){
             firebaseAuth.signOut();
-            Intent intentUserToSignUp = new Intent(UserReserveButton.this, MainActivity.class);
+            Intent intentUserToSignUp = new Intent(UserReservations.this, MainActivity.class);
             startActivity(intentUserToSignUp);
             finish();
         }
@@ -47,7 +47,7 @@ public class UserReserveButton extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_reserve_button);
+        setContentView(R.layout.activity_user_reservations);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore= FirebaseFirestore.getInstance();
 

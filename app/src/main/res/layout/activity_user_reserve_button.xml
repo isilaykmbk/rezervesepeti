@@ -79,29 +79,6 @@
                     android:textAlignment="center"
                     android:textSize="14dp"
                     android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/name_1"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/name_2"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold"  />
-
-                <TextView
-                    android:id="@+id/name_3"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold"  />
 
             </LinearLayout>
 
@@ -119,29 +96,6 @@
                     android:textSize="14dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/time_1"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/timw_2"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold"  />
-
-                <TextView
-                    android:id="@+id/time_3"
-                    android:layout_width="190dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="14dp"
-                    android:textStyle="bold"  />
             </LinearLayout>
 
         </LinearLayout>

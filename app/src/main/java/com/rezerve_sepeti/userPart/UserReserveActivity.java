@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +21,7 @@ public class UserReserveActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
-
+    private String tempBusinessUUID;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,6 +47,17 @@ public class UserReserveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reserve);
         firebaseAuth = FirebaseAuth.getInstance();
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            tempBusinessUUID = extras.getString("selectedBusiness_UUID");
+        }
+        findViewById(R.id.user_reserved_back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toUserDashboard = new Intent(UserReserveActivity.this, UserDashboardAct.class);
+                toUserDashboard.putExtra("selectedBusiness_UUID",tempBusinessUUID);
+                startActivity(toUserDashboard);
+            }
+        });
     }
 }

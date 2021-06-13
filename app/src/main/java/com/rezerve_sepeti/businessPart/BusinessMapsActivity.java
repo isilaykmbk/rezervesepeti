@@ -1,5 +1,4 @@
 package com.rezerve_sepeti.businessPart;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -84,7 +83,6 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
         }
         return super.onOptionsItemSelected(item);
     }//this method is used for what will be done when something has selected on menu
-
 
 
     @Override

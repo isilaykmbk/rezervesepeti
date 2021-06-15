@@ -22,7 +22,6 @@ public class UserReserveActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private String tempBusinessUUID;
-    private String tempBusinessName;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,16 +50,13 @@ public class UserReserveActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             tempBusinessUUID = extras.getString("selectedBusiness_UUID");
-            tempBusinessName = extras.getString("selectedBusiness_Name");
         }
         findViewById(R.id.user_reserved_back_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent toUserDashboard = new Intent(UserReserveActivity.this, UserDashboardAct.class);
                 toUserDashboard.putExtra("selectedBusiness_UUID",tempBusinessUUID);
-                toUserDashboard.putExtra("selectedBusiness_Name",tempBusinessName);
                 startActivity(toUserDashboard);
-                finish();
             }
         });
     }

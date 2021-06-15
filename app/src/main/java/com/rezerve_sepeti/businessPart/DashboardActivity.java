@@ -120,11 +120,15 @@ public class DashboardActivity extends AppCompatActivity {
         return DashboardData;
     }
     private boolean CheckInputData(EditText business_name, EditText business_type, EditText business_phone,EditText closing_time,EditText opening_time) {
+        if (opening_time.getText().toString().length() == 0) return false;
+        if (closing_time.getText().toString().length() == 0) return false;
+        int openTime =  Integer.parseInt(opening_time.getText().toString());
+        int closeTime =  Integer.parseInt(closing_time.getText().toString());
         return (business_name.getText().toString().length() > 0 &&
                 business_type.getText().toString().length() > 0 &&
                 business_phone.getText().toString().length() > 0 &&
-                closing_time.getText().toString().length()>0 &&
-                opening_time.getText().toString().length()>0);
+                openTime > -1 && closeTime < 25 && closeTime > -1
+                && openTime < closeTime);
     }
     private void button4(EditText business_name, EditText business_type, EditText business_phone,EditText closing_time,EditText opening_time) {
         findViewById(R.id.business_dashboard_next_button).setOnClickListener(new View.OnClickListener() {
@@ -143,30 +147,11 @@ public class DashboardActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                         }
                     });
+                }else {
+                    //TODO: Hata mesajlari duzeltilebilir.
+                    Toast.makeText(getApplicationContext(),"Lutfen istenilen yerleri dogru doldurunuz",Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    /*private void button(){
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                firebaseFirestore.collection("documents").document(firebaseAuth.getCurrentUser().getUid()).delete()//update yap
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(getApplicationContext(),"Duzenlemeye baslayabilirsiniz.",Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(),"Duzenlemede hata oldu. Tekrar deneyiniz.",Toast.LENGTH_LONG).show();
-                            }
-                        });
-            }
-        });
-
-    };*/
-
 }

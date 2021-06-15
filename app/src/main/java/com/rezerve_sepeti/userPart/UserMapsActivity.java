@@ -3,7 +3,6 @@ package com.rezerve_sepeti.userPart;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -12,10 +11,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,8 +37,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 
@@ -54,7 +53,6 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
     private Place currentBusiness;
     private boolean dataSwitch = false;
     private float radius = 5;
-    private SharedPreferences sharedPreferences;
     //private Location userLocation;//Sonra kullanılabılır
 
     @Override
@@ -67,13 +65,14 @@ public class UserMapsActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         firebaseFirestore = FirebaseFirestore.getInstance();
-        sharedPreferences = this.getSharedPreferences("package com.rezerve_sepeti.userPart",Context.MODE_PRIVATE);
         findViewById(R.id.UserMapButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (currentBusiness != null){
                     Intent toUserDashboard = new Intent(UserMapsActivity.this, UserDashboardAct.class);
                     toUserDashboard.putExtra("selectedBusiness_UUID",currentBusiness.getUuid());
+                    toUserDashboard.putExtra("selectedBusiness_Name",currentBusiness.getName());
+
                     startActivity(toUserDashboard);
                 }
             }

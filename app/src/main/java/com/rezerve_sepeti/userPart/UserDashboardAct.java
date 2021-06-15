@@ -2,6 +2,7 @@ package com.rezerve_sepeti.userPart;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,17 +11,20 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,6 +38,7 @@ import org.jetbrains.annotations.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -41,13 +46,13 @@ public class UserDashboardAct extends AppCompatActivity {
 
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
     private static  final String TAG = "UserDashboardAct";
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private FirebaseFirestore firebaseFirestore;
 
     private String businessUUID;
-    private String businessName;
     private int tablePcs;
     private int openTime;
     private int closeTime;
@@ -87,7 +92,6 @@ public class UserDashboardAct extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             businessUUID = extras.getString("selectedBusiness_UUID");
-            businessName = extras.getString("selectedBusiness_Name");
         }
 
         findViewById(R.id.rezerve).setOnClickListener(new View.OnClickListener() {
@@ -215,29 +219,15 @@ public class UserDashboardAct extends AppCompatActivity {
             boolean isReserved = reservations.getOrDefault(j+"-"+tableNo,99) == j;
             if(isReserved || j < startTime+1 || j > closeTime-1)
             {
-                System.out.println(isToday(selectedTimestamp));
                 System.out.println("Saat :" +j+" Reservasyon durumu: " + isReserved + " Acilis saati: " + (startTime + 1) + " Kapanis saati: "+ (closeTime - 1));
                 System.out.println(reservations);
-                if (isReserved){
+                if (isReserved)
                     time.setText("Reserved");
-                    time.setClickable(false);
-                    time.setTextColor(Color.RED);
-                }
-                else{
-                    if(isToday(selectedTimestamp)){
-                        time.setText("Time Out");
-                        time.setClickable(false);
-                        time.setTextColor(Color.RED);
-                    }else{
-                        time.setText(String.format("%2d:00",j));
-                        time.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                selectedTime = v.getId();
-                            }
-                        });
-                    }
-                }
+                else
+                    time.setText("Time Out");
+                time.setClickable(false);
+                time.setTextColor(Color.RED);
+
             }else{
                 time.setText(String.format("%2d:00",j));
                 time.setOnClickListener(new View.OnClickListener() {
@@ -251,14 +241,6 @@ public class UserDashboardAct extends AppCompatActivity {
         timeline.addView(timeRadioGroup);
         //---------------------------------------------
     }
-    private boolean isToday(Long time){
-        Calendar calendar = Calendar.getInstance();
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH);
-        int year = calendar.get(Calendar.YEAR);
-        Long date = getTimestamp(year,month,day);
-        return time.equals(date);
-    }
     private void reserveTable(int tableNo, int time, Long resDate,Long date){
         System.out.println("reserve deneme" + " " + tableNo + " " + time + " " + resDate + " " + date);
         firebaseFirestore.collection("users").document(firebaseAuth.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -266,7 +248,6 @@ public class UserDashboardAct extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 HashMap<String,Object> resModel = new HashMap<>();
                 resModel.put("business_uuid",businessUUID);
-                resModel.put("business_name",businessName);
                 resModel.put("user_uuid",documentSnapshot.get("user_uuid"));
                 resModel.put("user_fullname", documentSnapshot.get("user_name") + ((String) documentSnapshot.get("user_surname")));
                 resModel.put("user_resTo_date",date);
@@ -279,7 +260,6 @@ public class UserDashboardAct extends AppCompatActivity {
                         //startActivity(new Intent(UserDashboardAct.this, UserReserveActivity.class));
                         Intent toUserDashboard = new Intent(UserDashboardAct.this, UserReserveActivity.class);
                         toUserDashboard.putExtra("selectedBusiness_UUID",businessUUID);
-                        toUserDashboard.putExtra("selectedBusiness_Name",businessName);
                         startActivity(toUserDashboard);
                     }
                 }).addOnFailureListener(new OnFailureListener() {

@@ -18,7 +18,6 @@ import com.rezerve_sepeti.R;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -34,8 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.business_signup_password);
         EditText username = findViewById(R.id.business_signup_username);
         EditText confirmPassword = findViewById(R.id.busi_inputConformPassword);
-        signUpButton(email, password,
-                username, confirmPassword);
+        signUpButton(email.getText().toString(), password.getText().toString(),
+                username.getText().toString(), confirmPassword.getText().toString());
 
         findViewById(R.id.alreadyHaveAccount).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         model.put("business_username",username); //e-mail yerine de geçebilir.
         model.put("business_mail",mail); //String
         model.put("business_uuid",uuId); //String
-        model.put("table_pcs",0L); //number/int
+        model.put("table_pcs",null); //number/int
         model.put("geo_point",null); // new GeoPoint(0,0)
         model.put("business_address",null); //String
         model.put("business_name",null); //String
@@ -58,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
         model.put("business_type",null); //String
         model.put("opening_time",null); // TimeStamp
         model.put("closing_time",null); // TimeStamp
-        model.put("table_chair_pcs", new ArrayList<>()); // liste/dizi olabilir.
+        model.put("table_chair_pcs",null); // liste/dizi olabilir.
         model.put("isOpen",true); //Boolean
         return model;
     }
@@ -69,18 +68,18 @@ public class SignUpActivity extends AppCompatActivity {
                 confirmPassword.length() > 0 &&
                 confirmPassword.equals(password));
     }
-    private void signUpButton(EditText email, EditText password, EditText username, EditText confirmPassword) {
+    private void signUpButton(String email, String password, String username, String confirmPassword) {
         findViewById(R.id.business_signup_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Girilen veriler dolumu ve şifreler aynımı diye kontroll ediliyor.
-                if (checkInputData(email.getText().toString(),password.getText().toString(),username.getText().toString(),confirmPassword.getText().toString())){
+                if (checkInputData(email,password,username,confirmPassword)){
                     // Firebase'in email ve password kullanarak auth sistemine kayıt olunmasını sağlaya API'ı kullanarak uye olunma ıslemı baslıyor.
-                firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                firebaseAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     //Uye olunma basarılı bır sekılde gerceklestiginde veri tabanına kullanıcı ıle ılgılı verıler eklenıyor.
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(getBusinessModel(username.getText().toString(),email.getText().toString(),firebaseAuth.getCurrentUser().getUid())).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        firebaseFirestore.collection("develop").document(firebaseAuth.getCurrentUser().getUid()).set(getBusinessModel(username,email,firebaseAuth.getCurrentUser().getUid())).addOnSuccessListener(new OnSuccessListener<Void>() {
                             //Veri tabanına ekleme ıslemı basarılı bır sekılde gerceklestıgınde bır mesaj gosterılıyor ve anasayfaya gerı donuluyor.
                             @Override
                             public void onSuccess(Void unused) {
@@ -111,7 +110,6 @@ public class SignUpActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Sifreler uyuşmuyor!",Toast.LENGTH_LONG).show();
                     }//Istenılen butun verıler gırılmedıgınde.
                     else{
-                        System.out.println(username.length() + "-" + email.length() + "-" + password + "-" + confirmPassword);
                         Toast.makeText(getApplicationContext(),"Lütfen boş bırakılan alanları doldurunuz!",Toast.LENGTH_LONG).show();
                     }
                 }

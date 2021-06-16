@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:context=".MainActivity">
 
         <Button
@@ -34,8 +34,8 @@
 
         <Button
             android:id="@+id/business_dash_tables_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="157dp"
+            android:layout_height="47dp"
             android:text="Masalar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/business_dash_reserves_button"
@@ -82,12 +82,12 @@
             android:id="@+id/business_dashboard_next_button"
             android:layout_width="110dp"
             android:layout_height="46dp"
-            android:layout_marginEnd="56dp"
             android:text="Kaydet"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.879" />
+            app:layout_constraintVertical_bias="0.876" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -123,25 +123,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/business_dashboard_set_button"
-            android:layout_width="110dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="56dp"
-            android:text="Düzenle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.881" />
-
         <EditText
             android:id="@+id/opening_time"
             android:layout_width="220dp"
             android:layout_height="41dp"
             android:ems="10"
             android:hint="Açılış Saati"
-            android:textColorHint="@color/black"
             android:inputType="number"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,12 +144,12 @@
             android:ems="10"
             android:hint="Kapanış Saati"
             android:inputType="number"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/opening_time"
-            app:layout_constraintVertical_bias="0.13"
-            android:textColorHint="@color/black"/>
+            app:layout_constraintVertical_bias="0.13" />
 
         <Button
             android:id="@+id/business_dash_maps_button"

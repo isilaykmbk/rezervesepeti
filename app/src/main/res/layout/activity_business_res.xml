@@ -118,8 +118,8 @@
 
     <Button
         android:id="@+id/business_res_dashboard_button"
-        android:layout_width="133dp"
-        android:layout_height="53dp"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
         android:text="Pano"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,20 +130,20 @@
 
     <Button
         android:id="@+id/business_res_tables_button"
-        android:layout_width="134dp"
-        android:layout_height="51dp"
+        android:layout_width="136dp"
+        android:layout_height="54dp"
         android:text="Masalar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/business_res_maps_button"
-        android:layout_width="133dp"
-        android:layout_height="53dp"
+        android:layout_width="159dp"
+        android:layout_height="54dp"
         android:text="Konum"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/business_res_tables_button"

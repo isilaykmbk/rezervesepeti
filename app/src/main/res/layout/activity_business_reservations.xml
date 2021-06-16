@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="621dp"
+        android:layout_height="767dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bb" />
+
+    <Button
+        android:id="@+id/business_res_tables_button"
+        android:layout_width="136dp"
+        android:layout_height="54dp"
+        android:text="Masalar"
+        app:layout_constraintBottom_toTopOf="@+id/business_res_text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <Button
+        android:id="@+id/business_res_maps_button"
+        android:layout_width="140dp"
+        android:layout_height="54dp"
+        android:text="Konum"
+        app:layout_constraintBottom_toTopOf="@+id/business_res_text2"
+        app:layout_constraintEnd_toEndOf="@+id/business_res_tables_button"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <Button
+        android:id="@+id/business_res_dashboard_button"
+        android:layout_width="121dp"
+        android:layout_height="51dp"
+        android:text="Pano"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <TextView
+        android:id="@+id/business_res_text2"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:text="Rezerve Bilgileri"
+        android:textColor="#000000"
+        android:textColorHint="#0C0C0C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollLinTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <LinearLayout
+        android:id="@+id/scrollLinTime"
+        android:layout_width="366dp"
+        android:layout_height="364dp"
+        android:layout_marginTop="333dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/business_res_name"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginTop="24dp"
+            android:text="Rezerve Eden Kişi :"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/business_res_tableNo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Masa Numarası :"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/business_res_date"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Rezerve Edilen Tarih :"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/business_res_hour"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="Rezerve Edilen Saat:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/business_res_peoples"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:text="Kişi Sayısı:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/business_res_empty"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

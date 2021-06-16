@@ -13,14 +13,14 @@
         android:layout_height="833dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391"
+        app:layout_constraintVertical_bias="0.404"
         app:srcCompat="@drawable/bb" />
 
     <TextView
-        android:id="@+id/business_res_peoplenumber"
+        android:id="@+id/luj"
         android:layout_width="242dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -32,11 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/business_res_hour"
+        app:layout_constraintTop_toBottomOf="@+id/hjş"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/business_res_hour"
+        android:id="@+id/hjş"
         android:layout_width="242dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
@@ -47,10 +47,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/business_res_date" />
+        app:layout_constraintTop_toBottomOf="@+id/hk" />
 
     <TextView
-        android:id="@+id/business_res_date"
+        android:id="@+id/hk"
         android:layout_width="242dp"
         android:layout_height="52dp"
         android:text="Rezerve Tarihi"
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.617" />
 
     <TextView
-        android:id="@+id/business_res_tableno"
+        android:id="@+id/gkg"
         android:layout_width="242dp"
         android:layout_height="52dp"
         android:layout_marginBottom="12dp"
@@ -73,7 +73,7 @@
         android:textColor="#000000"
         android:textColorHint="#0C0C0C"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/business_res_date"
+        app:layout_constraintBottom_toTopOf="@+id/hk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,14 +81,14 @@
         app:layout_constraintVertical_bias="0.949" />
 
     <TextView
-        android:id="@+id/business_res_who"
+        android:id="@+id/gj"
         android:layout_width="242dp"
         android:layout_height="52dp"
         android:text="Rezerve eden kişi "
         android:textColor="#000000"
         android:textColorHint="#0C0C0C"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/business_res_tableno"
+        app:layout_constraintBottom_toTopOf="@+id/gkg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
         tools:layout_editor_absoluteY="475dp" />
 
     <Button
-        android:id="@+id/business_res_dashboard_button"
+        android:id="@+id/business_res_dashboard_button3"
         android:layout_width="140dp"
         android:layout_height="54dp"
         android:text="Pano"
@@ -129,7 +129,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/business_res_tables_button"
+        android:id="@+id/business_res_tables_button3"
         android:layout_width="136dp"
         android:layout_height="54dp"
         android:text="Masalar"
@@ -141,14 +141,14 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/business_res_maps_button"
+        android:id="@+id/business_res_maps_button2"
         android:layout_width="159dp"
         android:layout_height="54dp"
         android:text="Konum"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/business_res_tables_button"
+        app:layout_constraintEnd_toStartOf="@+id/business_res_tables_button3"
         app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toEndOf="@+id/business_res_dashboard_button"
+        app:layout_constraintStart_toEndOf="@+id/business_res_dashboard_button3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 

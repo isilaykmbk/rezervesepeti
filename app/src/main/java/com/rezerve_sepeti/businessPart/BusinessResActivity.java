@@ -64,7 +64,7 @@ public class BusinessResActivity extends AppCompatActivity {
         //getDataForUsers();
         getDataForRes();
         //allow to change screen to tables
-        findViewById(R.id.business_res_tables_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_res_tables_button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BusinessResActivity.this,TablesActivity.class));
@@ -72,7 +72,7 @@ public class BusinessResActivity extends AppCompatActivity {
             }
         });
         //allow to change screen to map
-        findViewById(R.id.business_res_maps_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_res_maps_button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BusinessResActivity.this,BusinessMapsActivity.class));
@@ -80,7 +80,7 @@ public class BusinessResActivity extends AppCompatActivity {
             }
         });
         //allow to change screen to dashboard
-        findViewById(R.id.business_res_dashboard_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.business_res_dashboard_button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BusinessResActivity.this,DashboardActivity.class));

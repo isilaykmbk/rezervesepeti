@@ -127,7 +127,6 @@ public class BusinessMapsActivity extends FragmentActivity implements OnMapReady
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(getApplicationContext(),"Veriler guncellendı",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(BusinessMapsActivity.this,TablesActivity.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

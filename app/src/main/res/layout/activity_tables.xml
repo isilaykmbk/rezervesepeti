@@ -23,7 +23,7 @@
             android:id="@+id/business_table_onOff_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Acik"
+            android:text="Açık"
             android:textOff="Kapali"
             android:textOn="Acik"
             app:layout_constraintBottom_toBottomOf="parent"

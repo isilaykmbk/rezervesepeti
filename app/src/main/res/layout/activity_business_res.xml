@@ -77,8 +77,8 @@
 
     <LinearLayout
         android:id="@+id/business_scroll_holder"
-        android:layout_width="307dp"
-        android:layout_height="449dp"
+        android:layout_width="326dp"
+        android:layout_height="468dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

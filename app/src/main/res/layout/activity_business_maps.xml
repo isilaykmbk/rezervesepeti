@@ -27,12 +27,13 @@
 
     <TextView
         android:id="@+id/business_map_address_text"
-        android:layout_width="286dp"
-        android:layout_height="57dp"
+        android:layout_width="330dp"
+        android:layout_height="89dp"
         android:contentDescription="Adress"
         android:paddingLeft="8dp"
         android:text="Adres:\n"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -80,8 +81,8 @@
     <fragment
         android:id="@+id/business_map_fragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_width="413dp"
+        android:layout_height="367dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

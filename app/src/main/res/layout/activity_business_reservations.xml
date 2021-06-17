@@ -16,36 +16,35 @@
 
     <Button
         android:id="@+id/business_res_tables_button"
-        android:layout_width="136dp"
-        android:layout_height="54dp"
+        android:layout_width="139dp"
+        android:layout_height="57dp"
         android:text="Masalar"
         app:layout_constraintBottom_toTopOf="@+id/business_res_text2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.492" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/business_res_maps_button"
-        android:layout_width="140dp"
-        android:layout_height="54dp"
+        android:layout_width="144dp"
+        android:layout_height="56dp"
         android:text="Konum"
         app:layout_constraintBottom_toTopOf="@+id/business_res_text2"
         app:layout_constraintEnd_toEndOf="@+id/business_res_tables_button"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.492" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <Button
         android:id="@+id/business_res_dashboard_button"
-        android:layout_width="121dp"
-        android:layout_height="51dp"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:text="Pano"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056" />

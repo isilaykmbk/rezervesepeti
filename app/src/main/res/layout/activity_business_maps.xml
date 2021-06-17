@@ -13,8 +13,12 @@
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:text="Masalar"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="77dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/business_map_address_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
@@ -25,46 +29,65 @@
         android:id="@+id/business_map_address_text"
         android:layout_width="326dp"
         android:layout_height="71dp"
+        android:layout_marginTop="388dp"
         android:contentDescription="Adress"
         android:paddingLeft="8dp"
         android:text="Adres:\n"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="527dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.635"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/business_map_fragment"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/business_map_reserves_button"
         android:layout_width="138dp"
         android:layout_height="55dp"
+        android:layout_marginStart="272dp"
         android:text="Rezerveler"
-        app:layout_constraintStart_toEndOf="@+id/business_map_tables_button"
-        tools:layout_editor_absoluteY="1dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/business_map_set_currentposition_button"
         android:layout_width="41dp"
         android:layout_height="37dp"
         android:backgroundTint="@color/darkred"
-        app:srcCompat="@drawable/activity_main_button_border"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="439dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/business_map_dash_button"
+        app:layout_constraintVertical_bias="0.725"
+        app:srcCompat="@drawable/activity_main_button_border" />
 
     <Button
         android:id="@+id/business_map_dash_button"
         android:layout_width="142dp"
         android:layout_height="55dp"
+        android:layout_marginEnd="268dp"
         android:text="Pano"
-        app:layout_constraintEnd_toStartOf="@+id/business_map_tables_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
 
     <fragment
         android:id="@+id/business_map_fragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="371dp"
-        android:layout_height="386dp"
-        tools:context=".businessPart.BusinessMapsActivity"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="124dp" />
+        android:layout_height="330dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361"
+        tools:context=".businessPart.BusinessMapsActivity" />
 
     <Button
         android:id="@+id/business_map_next_button"

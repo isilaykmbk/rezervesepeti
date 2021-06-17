@@ -20,82 +20,6 @@
         app:srcCompat="@drawable/bb" />
 
     <TextView
-        android:id="@+id/luj"
-        android:layout_width="242dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="24dp"
-        android:text="Kişi Sayısı"
-        android:textColor="#000000"
-        android:textColorHint="#0C0C0C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hjş"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/hjş"
-        android:layout_width="242dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        android:text="Rezerve Saati"
-        android:textColor="#000000"
-        android:textColorHint="#0C0C0C"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hk" />
-
-    <TextView
-        android:id="@+id/hk"
-        android:layout_width="242dp"
-        android:layout_height="52dp"
-        android:text="Rezerve Tarihi"
-        android:textColor="#000000"
-        android:textColorHint="#0C0C0C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.617" />
-
-    <TextView
-        android:id="@+id/gkg"
-        android:layout_width="242dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="12dp"
-        android:text="Masa Numarası"
-        android:textColor="#000000"
-        android:textColorHint="#0C0C0C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/hk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.949" />
-
-    <TextView
-        android:id="@+id/gj"
-        android:layout_width="242dp"
-        android:layout_height="52dp"
-        android:text="Rezerve eden kişi "
-        android:textColor="#000000"
-        android:textColorHint="#0C0C0C"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/gkg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
-
-    <TextView
         android:id="@+id/business_res_text"
         android:layout_width="148dp"
         android:layout_height="38dp"
@@ -105,10 +29,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <androidx.constraintlayout.widget.Group
         android:layout_width="7dp"
@@ -151,5 +75,17 @@
         app:layout_constraintStart_toEndOf="@+id/business_res_dashboard_button3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/business_scroll_holder"
+        android:layout_width="400dp"
+        android:layout_height="450dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/business_res_text"
+        app:layout_constraintVertical_bias="0.092"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

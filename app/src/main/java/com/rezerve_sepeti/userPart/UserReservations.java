@@ -109,9 +109,9 @@ public class UserReservations extends AppCompatActivity {
                     Long reservedDate = (Long) snapshot.get("user_resTo_date");
                     Long reservationDate = (Long) snapshot.get("user_res_date");
                     String UUID = (String)snapshot.getId();
-                    System.out.println("UUID: " + UUID);
+                    //System.out.println("UUID: " + UUID);
                     initReservationUi(name,time,no,reservationDate,reservedDate,UUID);
-                    System.out.println(snapshot);
+                    //System.out.println(snapshot);
                 }
             }
         });
@@ -139,16 +139,16 @@ public class UserReservations extends AppCompatActivity {
         ((TextView)template.findViewById(R.id.masaNo)).setText("Masa No: "+ tableNo);
         ((TextView)template.findViewById(R.id.toDate)).setText("Rezerve Edilen Tarih: " + reservedDateStr + "-" +String.format("%2d:00",reservedTime));
         ((TextView)template.findViewById(R.id.atDate)).setText("Rezerve Yapılan Tarih: "+ reservationDateStr);
-        ((RadioButton)template.findViewById(R.id.isSelected)).setTag(reservationRadioGroup.size());
-        reservationRadioGroup.add(((RadioButton)template.findViewById(R.id.isSelected)));
-        ((RadioButton)template.findViewById(R.id.isSelected)).setOnClickListener(new View.OnClickListener() {
+        template.findViewById(R.id.isSelected).setTag(reservationRadioGroup.size());
+        reservationRadioGroup.add(template.findViewById(R.id.isSelected));
+        template.findViewById(R.id.isSelected).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("Basilan Tus: " + ((RadioButton)v).getTag());
                 selectedResUUID = UUID;
                 for (RadioButton button:reservationRadioGroup) {
                     System.out.println("Basilan Tus: " + ((RadioButton)v).getTag() + " - " + button.getTag());
-                    if (((RadioButton)v).getTag() != button.getTag()){
+                    if (v.getTag() != button.getTag()){
                         button.setChecked(false);
                     }
                 }

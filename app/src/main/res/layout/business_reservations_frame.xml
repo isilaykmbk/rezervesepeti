@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/business_template"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/business_res_name"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:text="Rezerve Eden Kişi :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/business_res_tableNo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Masa Numarası :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/business_res_date"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Rezerve Edilen Tarih :"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/business_res_hour"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Rezerve Edilen Saat:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/business_res_empty"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

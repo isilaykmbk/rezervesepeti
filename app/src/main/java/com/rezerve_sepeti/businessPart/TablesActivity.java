@@ -2,12 +2,16 @@ package com.rezerve_sepeti.businessPart;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -35,13 +39,12 @@ public class TablesActivity extends AppCompatActivity{
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private FirebaseUser firebaseUser;
-    private Button newButton;
     private Switch onOffSwitch;
     private TextView tablePcsTextView;
     private int tablePcs;
     private int pageIndex;
     private int numOfPage;
-    private ArrayList<Integer> tableChairPcs;
+    private ArrayList<Long> tableChairPcs;
 
 
 
@@ -83,8 +86,8 @@ public class TablesActivity extends AppCompatActivity{
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Long pcs = (Long) documentSnapshot.get("table_pcs");
                 tablePcs = pcs != null ? pcs.intValue() : 0;
-                if(documentSnapshot.get("table_chair_count") != null) {
-                    tableChairPcs = (ArrayList<Integer>) documentSnapshot.get("table_chair_count");
+                if(documentSnapshot.get("table_chair_pcs") != null) {
+                    tableChairPcs = (ArrayList<Long>) documentSnapshot.get("table_chair_pcs");
                 } else{
                     tableChairPcs = new ArrayList<>(tablePcs);
                 }
@@ -147,6 +150,52 @@ public class TablesActivity extends AppCompatActivity{
                 finish();
             }
         });
+        //-------------------------------------------------
+        findViewById(R.id.business_table_leftpage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPageChange(-1);
+            }
+        });
+        //-------------------------------------------------
+        findViewById(R.id.business_table_rightpage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPageChange(1);
+            }
+        });
+        //------------------------------------------------
+        tablePcsTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                System.out.println("deneme-");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                System.out.println("deneme+");
+                if (s.toString().length() > 0){
+                    tablePcs = Integer.parseInt(s.toString());
+                    numOfPage = tablePcs / 10 + 1;
+                    if (pageIndex > numOfPage - 1)
+                        pageIndex = numOfPage - 1;
+                    ArrayList<Long> tempChairArray = (ArrayList<Long>) tableChairPcs.clone();
+                    tableChairPcs = new ArrayList<>();
+                    for (int i = 0; i < tablePcs; i++) {
+                        if(i <= tempChairArray.size()-1)
+                            tableChairPcs.add(tempChairArray.get(i));
+                        else
+                            tableChairPcs.add(0L);
+                    }
+                    initTables(tablePcs);
+                }
+            }
+        });
     }
     //----------------------------------------------------
     //-----------------------InitTable--------------------------
@@ -155,22 +204,30 @@ public class TablesActivity extends AppCompatActivity{
     void initTables(int pcs){
         ((GridLayout)findViewById(R.id.business_table_tables)).removeAllViewsInLayout();
         for (int i = 0; i < (Math.min(pcs, 9)); i++) {
-            newButton = new Button(this);
-            newButton.setText(i+".Masa");
-            //ResourcesCompat.getDrawable(res, R.drawable.expand_collapse, null);
-            newButton.setBackground(ResourcesCompat.getDrawable(getApplicationContext().getResources(),R.drawable.activity_main_button_border,null));
-            /*newButton.setMinWidth();
-            newButton.setMaxWidth();
-            newButton.setMinHeight();
-            newButton.setMaxHeight();*/
-            int buttonIndex = i;
-            newButton.setOnClickListener(new View.OnClickListener() {
+            View tableFrame = getLayoutInflater().inflate(R.layout.table_frame,((GridLayout)findViewById(R.id.business_table_tables)),false);
+            tableFrame.setTag(i);
+            int tempI = i;
+            ((EditText)tableFrame).addTextChangedListener(new TextWatcher() {
                 @Override
-                public void onClick(View v) {
-                    tableButtonClicked(buttonIndex);
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if (s.toString().length() > 0)
+                        tableChairPcs.set(tempI+pageIndex, Long.parseLong(s.toString()));
                 }
             });
-            ((GridLayout)findViewById(R.id.business_table_tables)).addView(newButton);
+            ((EditText)tableFrame).setText(tableChairPcs.get(i+pageIndex).toString());
+            ((EditText)tableFrame).setBackground(ResourcesCompat.getDrawable(getApplicationContext().getResources(),R.drawable.activity_main_button_border,null));
+            int buttonIndex = i;
+            ((GridLayout)findViewById(R.id.business_table_tables)).addView(tableFrame);
         }
     }
     //----------------------------------------------
@@ -185,14 +242,6 @@ public class TablesActivity extends AppCompatActivity{
                     tablePcs = Integer.parseInt(tablePcsTextView.getText().toString());
                 }
                 if (tablePcs >= 0){
-                    ArrayList<Integer> tempChairArray = (ArrayList<Integer>) tableChairPcs.clone();
-                    tableChairPcs = new ArrayList<>();
-                    for (int i = 0; i < tablePcs; i++) {
-                        if(i <= tempChairArray.size()-1)
-                            tableChairPcs.add(tempChairArray.get(i));
-                        else
-                            tableChairPcs.add(0);
-                    }
                     HashMap<String,Object> tableData= new HashMap<>();
                     tableData.put("table_pcs", tablePcs);
                     tableData.put("table_chair_pcs",tableChairPcs);
@@ -200,7 +249,7 @@ public class TablesActivity extends AppCompatActivity{
                             addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(),"Masa Sayısı Alınmıştır!"+tablePcs,Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Masa Sayısı Alınmıştır!",Toast.LENGTH_LONG).show();
                             initTables(tablePcs);
                             numOfPage = tablePcs / 10 + 1;
                         }
@@ -214,12 +263,12 @@ public class TablesActivity extends AppCompatActivity{
             }
         });
     }
-    //----------------------------------------------------
-    private void tableButtonClicked(int i){
-        //Kullanici elindeki masalarin rezervasyon durumlarini kontrol etmek icin masalara
-        //tikladiginda bir sonraki ekrana gecilir ve secili masanin rezervasyon verileri gosterilir.
-        System.out.println("Basilan Tus:"+i*pageIndex);
+    private void onPageChange(int dir){
+        if (dir == -1){
+            if (pageIndex > 0) pageIndex--;
+        }else{
+            if (pageIndex != numOfPage-1) pageIndex++;
+        }
+        initTables(tablePcs - (pageIndex*9));
     }
-
-
 }
